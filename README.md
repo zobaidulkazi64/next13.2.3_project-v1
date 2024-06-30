@@ -7,7 +7,7 @@
 
 [https://zobkazi.github.io/api-docs/](https://zobkazi.github.io/api-docs/)
 
-##### for more details
+##### Clone this repository & used it as a full stack nextjs project;
 
 ```sh
     

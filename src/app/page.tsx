@@ -1,15 +1,13 @@
+import Home from '@/components/home/Home';
 import React from 'react'
 
-const Home = () => {
+const HomePage = () => {
   return (
     <div>
-      <h1>Home</h1>
-
-      <p>
-        Welcome to my personal website. Please feel free to browse around.
-      </p>
+      
+      <Home />
     </div>
-  )
+  );
 }
 
-export default Home
+export default HomePage
