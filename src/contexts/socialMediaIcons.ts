@@ -8,7 +8,7 @@ import discordIcon from "@/assets/icons/discord.png";
 import calender from "@/assets/icons/calendar.png";
 import gmail from "@/assets/icons/gmail.png";
 
-export const SocialMediaIcons = [
+const SocialMediaIcons = [
   {
     name: "linkedin",
     icon: linkedinIcon,
@@ -34,3 +34,7 @@ export const SocialMediaIcons = [
   { name: "calender", icon: calender, link: "https://calendar.google.com/" },
   { name: "gmail", icon: gmail, link: "https://mail.google.com/" },
 ];
+
+
+const socialMediaIcons = SocialMediaIcons;
+export default socialMediaIcons;
