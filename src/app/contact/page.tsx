@@ -1,12 +1,10 @@
-import { UploadForm } from "@/components/ui-utils/UploadForm";
+import Contact from "@/components/contact/Contact";
 import React from 'react'
 
 const ContactPage = () => {
   return (
     <div>
-      <h1>Contact Page</h1>
-
-      <UploadForm />
+     <Contact />
     </div>
   )
 }

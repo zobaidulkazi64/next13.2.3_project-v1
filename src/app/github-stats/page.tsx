@@ -1,8 +1,11 @@
+import GithubStats from '@/components/github-stats/GithubStatus'
 import React from 'react'
 
 const GithubStatsPage = () => {
   return (
-    <div>GithubStatsPage</div>
+    <div>
+      <GithubStats />
+    </div>
   )
 }
 
