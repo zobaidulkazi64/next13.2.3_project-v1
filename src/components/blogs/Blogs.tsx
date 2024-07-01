@@ -1,9 +1,10 @@
-"use client";
+'use client';
+// components/BlogsComponent.tsx
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 interface Post {
+  _id: string;
   title: string;
   desc: string;
   img: string;
@@ -16,18 +17,25 @@ interface Pagination {
   totalPages: number;
   currentPage: number;
   limit: number;
+  nextLink?: string | null;
+  prevLink?: string | null;
 }
 
 const BlogsComponent: React.FC = () => {
   const [blogs, setBlogs] = useState<Post[]>([]);
   const [pagination, setPagination] = useState<Pagination | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
   const postsPerPage = 6;
 
   useEffect(() => {
-    const fetchBlogs = async (page: number, limit: number) => {
+    const fetchBlogs = async (page: number, limit: number, search: string) => {
       try {
-        const res = await fetch(`/api/blogs?page=${page}&limit=${limit}`);
+        let url = `/api/blogs?page=${page}&limit=${limit}`;
+        if (search) {
+          url += `&search=${encodeURIComponent(search)}`;
+        }
+        const res = await fetch(url);
         const data = await res.json();
         if (data.success) {
           setBlogs(data.data.blogs);
@@ -40,8 +48,13 @@ const BlogsComponent: React.FC = () => {
       }
     };
 
-    fetchBlogs(currentPage, postsPerPage);
-  }, [currentPage]);
+    fetchBlogs(currentPage, postsPerPage, searchTerm);
+  }, [currentPage, searchTerm]);
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(1); // Reset pagination when searching
+  };
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -55,36 +68,34 @@ const BlogsComponent: React.FC = () => {
           <p className="font-medium">
             Blogs that are loved by the community. Updated every hour.
           </p>
+          <input
+            type="text"
+            placeholder="Search blogs..."
+            className="w-full py-2 px-4 rounded-md border border-gray-300 focus:outline-none focus:border-green-500 mt-4"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
         </div>
         <ul className="grid gap-x-8 gap-y-10 mt-16 sm:grid-cols-2 lg:grid-cols-3">
-          {blogs.map((post, index) => (
+          {blogs.map((post) => (
             <li
-              key={index}
+              key={post._id}
               className="w-full mx-auto group sm:max-w-sm rounded-lg border border-green-300 shadow-xl shadow-green-400/30"
             >
-              <Link
-                href={post.href}
-                className="block overflow-hidden rounded-lg"
-              >
-                {/* <Image
-                  width={500}
-                  height={300}
-                  src={post.img}
-                  loading="lazy"
-                  alt={post.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                /> */}
-                <div className="p-4 md:p-6">
-                  <span className="block mb-2 font-medium text-sm">
-                    {post.date}
-                  </span>
-                  <h3 className="mt-2 text-lg  duration-150 group-hover:text-green-500 font-semibold">
-                    {post.title}
-                  </h3>
-                  <p className="mt-2  text-sm duration-150 group-hover:text-green-500">
-                    {post.desc}
-                  </p>
-                </div>
+              <Link href={post.href} passHref>
+                <a className="block overflow-hidden rounded-lg">
+                  <div className="p-4 md:p-6">
+                    <span className="block mb-2 font-medium text-sm">
+                      {post.date}
+                    </span>
+                    <h3 className="mt-2 text-lg  duration-150 group-hover:text-green-500 font-semibold">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2  text-sm duration-150 group-hover:text-green-500">
+                      {post.desc}
+                    </p>
+                  </div>
+                </a>
               </Link>
             </li>
           ))}
