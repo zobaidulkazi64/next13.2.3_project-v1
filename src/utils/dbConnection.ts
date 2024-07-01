@@ -1,10 +1,36 @@
+// lib/dbConnect.ts
 import mongoose from "mongoose";
 
-const dbConnection = async () => {
-  if (mongoose.connections[0].readyState) {
-    return;
-  }
-  await mongoose.connect(process.env.MONGODB_URI as string || "mongodb://localhost:27017/zobkazi.github.io");
-};
+const MONGO_URI: string = process.env.MONGO_URI as string;
 
-export default dbConnection;
+if (!MONGO_URI) {
+  throw new Error(
+    "Please define the MONGO_URI environment variable inside .env.local"
+  );
+}
+
+let cached = (global as any).mongoose;
+
+if (!cached) {
+  cached = (global as any).mongoose = { conn: null, promise: null };
+}
+
+async function dbConnect() {
+  if (cached.conn) {
+    return cached.conn;
+  }
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => {
+      return mongoose;
+    });
+  }
+  cached.conn = await cached.promise;
+  return cached.conn;
+}
+
+export default dbConnect;

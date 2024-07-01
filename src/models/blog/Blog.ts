@@ -1,7 +1,7 @@
 // models/Post.ts
 import mongoose, { Document, Model, Schema } from "mongoose";
 
-interface IPost extends Document {
+interface IBlog extends Document {
   title: string;
   desc: string;
   img: string;
@@ -9,7 +9,7 @@ interface IPost extends Document {
   href: string;
 }
 
-const postSchema: Schema = new mongoose.Schema({
+const blogSchema: Schema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -41,7 +41,7 @@ const postSchema: Schema = new mongoose.Schema({
   timestamps: true,
 });
 
-const Post: Model<IPost> =
-  mongoose.models.Post || mongoose.model<IPost>("Post", postSchema);
+const Blog: Model<IBlog> =
+  mongoose.models.Blog || mongoose.model<IBlog>("Post", blogSchema);
 
-export default Post;
+export default Blog;

@@ -1,4 +1,3 @@
-// utils/validation.ts
 import { z } from "zod";
 
 export const blogSchema = z.object({
@@ -8,4 +7,4 @@ export const blogSchema = z.object({
   href: z.string().url().default(""),
 });
 
-export type PostType = z.infer<typeof blogSchema>;
+export type BlogType = z.infer<typeof blogSchema>;
