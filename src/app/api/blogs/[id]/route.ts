@@ -1,8 +1,8 @@
-import Notice from "@/models/Home";
+import Blog from "@/models/blog/Blog";
 import { NextResponse, NextRequest } from "next/server";
-import dbConnect from "@/lib/dbConnect";
+import dbConnect from "@/utils/dbConnection";
 import { Types } from "mongoose";
-import { NoticeSchema } from "@/schemas/homeSchema";
+import { blogSchema } from "@/schemas/blogSchema";
 
 interface Params {
   params: {
@@ -26,18 +26,18 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Fetch the notice by ID from the database
-    const notice = await Notice.findById(id);
+    const notice = await Blog.findById(id);
 
     // Check if the notice exists
     if (!notice) {
-      return NextResponse.json({ error: "Notice not found" }, { status: 404 });
+      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
     }
 
     // Respond with the fetched notice
     return NextResponse.json({ notice });
   } catch (error) {
     // Log the error for debugging purposes
-    console.error("Error fetching notice:", error);
+    console.error("Error fetching Blog:", error);
 
     // Respond with an error message
     return NextResponse.json(
@@ -63,13 +63,13 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
 
     // Validate and parse the request body
-    const { error, data } = NoticeSchema.safeParse(await request.json());
+    const { error, data } = blogSchema.safeParse(await request.json());
     if (error) {
       return NextResponse.json({ error: error.errors }, { status: 400 });
     }
 
     // Find the notice by ID and update it
-    const updatedNotice = await Notice.findByIdAndUpdate(id, data, {
+    const updatedNotice = await Blog.findByIdAndUpdate(id, data, {
       new: true, // Return the updated document
       runValidators: true, // Run model validations
     });
