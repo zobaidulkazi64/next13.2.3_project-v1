@@ -134,3 +134,9 @@
 {"level":"info","message":"Blog created successfully","service":"user-service"}
 {"level":"info","message":"Blog created successfully","service":"user-service"}
 {"$__":{"activePaths":{"paths":{"_id":"init","company":"init","createdAt":"init","email":"init","fullName":"init","message":"init","updatedAt":"init"},"states":{"init":{"_id":true,"company":true,"createdAt":true,"email":true,"fullName":true,"message":true,"updatedAt":true},"require":{}}},"skipId":true},"$isNew":false,"_doc":{"_id":"668344f381f95236ac896726","company":"kazibyte","createdAt":"2024-07-02T00:08:19.486Z","email":"zobaidul@yahoo.com","fullName":"Md Zobaidul Islam Kazi","message":" Compiled /api/contact/route in 1117ms (173 modules)\nCreating new connection\nUsing cached connection","updatedAt":"2024-07-02T00:08:19.486Z"},"level":"warn","message":"Message already sent⭐  Compiled /api/contact/route in 1117ms (173 modules)\nCreating new connection\nUsing cached connection","service":"user-service"}
+{"level":"info","message":"User created successfully","service":"user-service"}
+{"level":"warn","message":"User not found","service":"user-service"}
+{"level":"warn","message":"User not found","service":"user-service"}
+{"level":"info","message":"User created successfully","service":"user-service"}
+{"level":"warn","message":"User already exists","service":"user-service"}
+{"level":"info","message":"User created successfully","service":"user-service"}

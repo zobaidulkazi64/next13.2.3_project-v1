@@ -8,10 +8,15 @@ export const loginWithEmail = z.object({
   password: z.string(),
 });
 
-// register with email and password
-export const registerWithEmail = z.object({
+// signup with email and password
+export const signupWithEmail = z.object({
   email: z.string(),
   password: z.string(),
+  name: z.string().optional().default(''),
+  username: z.string().optional().default(''),
+  avatar: z.string().optional().default(''),
+  bio: z.string().optional().default(''),
+  website: z.string().optional().default(''),
 })
 
 // register with google
