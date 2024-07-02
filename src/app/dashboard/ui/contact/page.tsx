@@ -1,4 +1,4 @@
-import GetAllContact from '@/components/dashboard/contact/GellAll'
+import GetAllContact from '@/components/dashboard/ui/contact/GellAll'
 import React from 'react'
 
 const DasContactPage = () => {
