@@ -1,8 +1,8 @@
-import Blog from "@/models/blog/Blog";
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import Contact from "@/models/contact/Contact";
 import dbConnect from "@/utils/dbConnection";
 import { Types } from "mongoose";
-import { blogSchema } from "@/schemas/blogSchema";
+import {contactSchema} from "@/schemas/contactSchema"
 
 interface Params {
   params: {
@@ -10,7 +10,7 @@ interface Params {
   };
 }
 
-// get notice by id
+// Get contact by ID
 export async function GET(request: NextRequest, { params }: Params) {
   try {
     // Connect to the database
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest, { params }: Params) {
     }
 
     // Fetch the notice by ID from the database
-    const notice = await Blog.findById(id);
+    const notice = await Contact.findById(id);
 
     // Check if the notice exists
     if (!notice) {
@@ -48,8 +48,8 @@ export async function GET(request: NextRequest, { params }: Params) {
   }
 }
 
-// update notice
 
+// Update contact by ID
 export async function PUT(request: NextRequest, { params }: Params) {
   try {
     // Connect to the database
@@ -64,13 +64,13 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
 
     // Validate and parse the request body
-    const { error, data } = blogSchema.safeParse(await request.json());
+    const { error, data } = contactSchema.safeParse(await request.json());
     if (error) {
       return NextResponse.json({ error: error.errors }, { status: 400 });
     }
 
     // Find the notice by ID and update it
-    const updatedNotice = await Blog.findByIdAndUpdate(id, data, {
+    const updatedNotice = await Contact.findByIdAndUpdate(id, data, {
       new: true, // Return the updated document
       runValidators: true, // Run model validations
     });
@@ -95,4 +95,39 @@ export async function PUT(request: NextRequest, { params }: Params) {
   }
 }
 
-// delete notice
+
+
+
+// Delete contact by ID
+
+export async function DELETE(request: NextRequest, { params }: Params) {
+
+  try {
+    await dbConnect();
+
+    const { id } = params;
+
+    if (!Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+    }
+
+    const deletedContact = await Contact.findByIdAndDelete(id);
+
+    if (!deletedContact) {
+      return NextResponse.json(
+        { success: false, message: "Contact not found" },
+        { status: 404 }
+      );
+    }
+    return NextResponse.json(
+      { success: true, message: "Contact deleted successfully" },
+      { status: 200 }
+    );
+
+  } catch (error) {
+     return NextResponse.json(
+       { success: false, message: "Deletion failed"},
+       { status: 400 }
+     );
+  }
+}
