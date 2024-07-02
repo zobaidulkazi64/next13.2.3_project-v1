@@ -23,7 +23,7 @@ const Contact = () => {
         </svg>
       ),
       contact: (
-        <Link className="text-blue-500" href="mailto:zobaidulkazi@gmail.com">
+        <Link  href="mailto:zobaidulkazi@gmail.com">
           Zobaidul Kazi
         </Link>
       ),
@@ -46,7 +46,7 @@ const Contact = () => {
         </svg>
       ),
       contact: (
-        <Link className="text-sky-600" href="tel:+88015 808 73964">
+        <Link  href="tel:+88015 808 73964">
           +88015 808 73964
         </Link>
       ),
@@ -75,7 +75,7 @@ const Contact = () => {
       ),
       contact: (
         <Link
-          className="text-sky-600"
+          className="hover:underline"
           href="https://maps.app.goo.gl/BCe2DhgkUpnFYfpR6"
           target="_blank"
           rel="noopener noreferrer"
@@ -87,31 +87,28 @@ const Contact = () => {
   ];
 
   return (
-    <main className="py-14 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-200 md:px-8">
+    <main className="py-14 ">
+      <div className="max-w-screen-xl mx-auto px-4  md:px-8">
         <div className="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
-          <div className="max-w-lg space-y-3">
-            <h3 className="text-indigo-600 dark:text-lime-50 font-semibold">
-              Contact
-            </h3>
-            <p className="text-black dark:text-gray-300 text-3xl font-semibold sm:text-4xl">
-              Let us know how we can help
+          <div className="max-w-lg space-y-3 shadow-sm rounded-lg  ">
+            <p className="text-3xl font-semibold sm:text-4xl">
+              Let us know how we can help!
             </p>
-            <p className="text-gray-700 dark:text-gray-100">
+            <p className="">
               We’re here to help and answer any question you might have, We look
               forward to hearing from you! Please fill out the form, or use the
               contact information below.
             </p>
-            <div>
+            <div className="flex flex-col gap-6">
               <ul className="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
                 {contactMethods.map((item, idx) => (
                   <li key={idx} className="flex items-center gap-x-3">
-                    <div className="flex-none text-gray-400">{item.icon}</div>
+                    <div className="flex-none text-2xl">{item.icon}</div>
                     <p>{item.contact}</p>
                   </li>
                 ))}
               </ul>
-              <hr className="my-8" />
+              <hr className="my-8 shadow-sm w-full border-2 border-green-300" />
             </div>
             <GoogleMap />
           </div>

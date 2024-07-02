@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 interface FormData {
   fullName: string;
@@ -41,32 +42,38 @@ const FormHandler = () => {
       !formData.company ||
       !formData.message
     ) {
+      // All fields are required
       setError("All fields are required.");
       return;
     }
 
     if (!validateEmail(formData.email)) {
+      // Invalid email
       setError("Invalid email format.");
       return;
     }
 
     try {
-      const response = await fetch("", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+        cache: "no-store",
+        next: { revalidate: 0 },
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        mode: "no-cors",
+        credentials: "same-origin",
       });
-
-      console.log(response);
-
       if (!response.ok) {
+       toast.error("Something went wrong. Please try again later.");
         const data = await response.json();
         setError(data.error || "Something went wrong. Please try again later.");
         return;
       }
-
+      toast.success("Message sent successfully.");
       const data = await response.json();
       setResponseMessage(data.message);
       setFormData({ fullName: "", email: "", company: "", message: "" });
@@ -76,10 +83,10 @@ const FormHandler = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-12">
+    <div className="max-w-lg mx-auto mt-12 shadow-lg rounded-lg shadow-amber-300 border-2 border-green-300 p-2">
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="font-medium text-black dark:text-white">
+          <label className="font-medium ">
             Full name
           </label>
           <input
@@ -89,11 +96,11 @@ const FormHandler = () => {
             value={formData.fullName}
             onChange={handleChange}
             required
-            className="w-full mt-2 px-3 py-2 text-white bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            className="w-full mt-2 px-3 py-2 bg-transparent outline-none border focus:green-indigo-600 shadow-sm rounded-lg"
           />
         </div>
         <div>
-          <label className="font-medium  text-black dark:text-white">
+          <label className="font-medium ">
             Email
           </label>
           <input
@@ -103,11 +110,11 @@ const FormHandler = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            className="w-full mt-2 px-3 py-2  bg-transparent outline-none border focus:green-indigo-600 shadow-sm rounded-lg"
           />
         </div>
         <div>
-          <label className="font-medium  text-black dark:text-white">
+          <label className="font-medium ">
             Company
           </label>
           <input
@@ -117,11 +124,11 @@ const FormHandler = () => {
             value={formData.company}
             onChange={handleChange}
             required
-            className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            className="w-full mt-2 px-3 py-2  bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
           />
         </div>
         <div>
-          <label className="font-medium  text-black dark:text-white">
+          <label className="font-medium   ">
             Message
           </label>
           <textarea
@@ -130,12 +137,15 @@ const FormHandler = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+            className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border focus:border-green-600 shadow-sm rounded-lg"
           ></textarea>
         </div>
-        {error && <p className="text-red-500">{error}</p>}
-        {responseMessage && <p className="text-green-500">{responseMessage}</p>}
-        <button className="w-full px-4 py-2 text-white font-medium bg-lime-600 hover:bg-lime-500 active:bg-indigo-600 rounded-lg duration-150">
+
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+
+        {responseMessage && <p className="text-green-500 text-sm">{responseMessage}</p>}
+  
+        <button className="w-full px-4 py-2 font-medium bg-green-500 hover:bg-green-400 active:bg-green-600 rounded-lg duration-150">
           Submit
         </button>
       </form>
