@@ -1,6 +1,6 @@
 // docs/swagger.ts
 import { createSwaggerSpec } from "next-swagger-doc";
-import {User} from "@/docs"
+import {User,Login} from "@/docs"
 import {Error400,Error401,Error404, Error500} from "@/docs/error"
 
 export const getApiDocs = async () => {
@@ -9,14 +9,19 @@ export const getApiDocs = async () => {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Next Swagger API Example",
-        version: "1.0",
+        title: "zobkazi.github.io API Documentation",
+        version: "0.0.1.0",
       },
 
       servers: [
         {
-          url: "http://localhost:3000/api-docs",
+          url: "https://zobkazi.github.io/api-docs",
+          description: "Production Server",
         },
+        {
+          url: "http://localhost:3000/api-docs",
+          description: "Local Server",
+        }
       ],
 
       tags: [
@@ -28,6 +33,7 @@ export const getApiDocs = async () => {
           name: "Post",
           description: "Post related end-points",
         },
+        
       ],
 
       securityDefinitions: {
@@ -39,69 +45,18 @@ export const getApiDocs = async () => {
       },
 
       paths: {
-        "/api/auth": {
-          get: {
-            tags: ["Auth"],
-            summary: "Get user details",
-            description: "Retrieves the details of a specific user.",
-            responses: {
-              200: {
-                description: "Success",
-                content: {
-                  "application/json": {
-                    schema: {
-                      $ref: "#/components/schemas/User",
-                    },
-                  },
-                },
-              },
-              401: Error401,
-              404: Error404,
-              500: Error500,
-             
-             
-            }
-          },
-
-          post: {
-            tags: ["Auth"],
-            summary: "Create user",
-            description: "Creates a new user.",
-            requestBody: {
-              required: true,
-              content: {
-                "application/json": {
-                  schema: {
-                    $ref: "#/components/schemas/User",
-                  },
-                },
-              },
-            },
-            responses: {
-              200: {
-                description: "Success",
-                content: {
-                  "application/json": {
-                    schema: {
-                      $ref: "#/components/schemas/User",
-                    },
-                  },
-                },
-              },
-              400: Error400,
-              401: Error401,
-              404: Error404,
-              500: Error500,
-            }
-          },
-        },
+        ...User,
+        ...Error400,
+        ...Error401,
+        ...Error404,
+        ...Error500
+        
       },
+      
 
       components: {
         schemas: {
-          User,
-          Error,
-          // Define other schemas here as needed
+          ...Login
         },
         securitySchemes: {
           BearerAuth: {

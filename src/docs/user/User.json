@@ -1,24 +1,37 @@
 {
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The unique identifier for the user"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the user"
-    },
-    "email": {
-      "type": "string",
-      "format": "email",
-      "description": "The email address of the user"
-    },
-    "dateTime": {
-      "type": "string",
-      "format": "date-time",
-      "description": "The date and time when the user data was last updated"
+  "/auth/login": {
+    "post": {
+      "tags": ["Auth"],
+      "summary": "Login user",
+      "description": "Logs in a user.",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Login"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          },
+          "headers": {
+            "Authorization": {
+              "type": "string",
+              "description": "The JWT token"
+            }
+          }
+        }
+      }
     }
-  },
-  "required": ["id", "name", "email", "dateTime"]
+  }
 }
