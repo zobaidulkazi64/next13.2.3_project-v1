@@ -1,6 +1,7 @@
+// docs/swagger.ts
 import { createSwaggerSpec } from "next-swagger-doc";
-import User from "./user/User.json";
-
+import {User} from "@/docs"
+import {Error400,Error401,Error404, Error500} from "@/docs/error"
 
 export const getApiDocs = async () => {
   const spec = createSwaggerSpec({
@@ -14,18 +15,14 @@ export const getApiDocs = async () => {
 
       servers: [
         {
-          url: "http://localhost:3000/api",
+          url: "http://localhost:3000/api-docs",
         },
       ],
 
       tags: [
         {
-          name: "User",
-          description: "User related end-points",
-        },
-        {
           name: "Auth",
-          description: "Auth related end-points",
+          description: "User related end-points",
         },
         {
           name: "Post",
@@ -42,22 +39,70 @@ export const getApiDocs = async () => {
       },
 
       paths: {
-        "/api/hello": {
+        "/api/auth": {
           get: {
-            tags: ["User"],
-            User
+            tags: ["Auth"],
+            summary: "Get user details",
+            description: "Retrieves the details of a specific user.",
+            responses: {
+              200: {
+                description: "Success",
+                content: {
+                  "application/json": {
+                    schema: {
+                      $ref: "#/components/schemas/User",
+                    },
+                  },
+                },
+              },
+              401: Error401,
+              404: Error404,
+              500: Error500,
+             
+             
+            }
           },
 
           post: {
-            tags: ["User"],
-            User
+            tags: ["Auth"],
+            summary: "Create user",
+            description: "Creates a new user.",
+            requestBody: {
+              required: true,
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/User",
+                  },
+                },
+              },
+            },
+            responses: {
+              200: {
+                description: "Success",
+                content: {
+                  "application/json": {
+                    schema: {
+                      $ref: "#/components/schemas/User",
+                    },
+                  },
+                },
+              },
+              400: Error400,
+              401: Error401,
+              404: Error404,
+              500: Error500,
+            }
           },
-
-          
         },
       },
 
       components: {
+        schemas: {
+          User,
+          Error,
+          // Define other schemas here as needed
+        },
         securitySchemes: {
           BearerAuth: {
             type: "http",
@@ -65,6 +110,7 @@ export const getApiDocs = async () => {
             bearerFormat: "JWT",
           },
         },
+      
       },
       security: [],
     },
