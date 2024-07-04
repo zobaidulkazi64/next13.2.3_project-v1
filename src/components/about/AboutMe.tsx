@@ -52,7 +52,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             <img
               src={profileImageUrl}
               alt="User Profile"
-              className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[10rem] sm:h-[10rem] xs:w-[8rem] xs:h-[8rem] outline outline-2 outline-yellow-500 shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] xs:bottom-[4.3rem]"
+              className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[5rem] sm:h-[5rem] w-[8rem] h-[8rem] xs:w-[8rem] xs:h-[8rem] outline outline-2 outline-yellow-500 shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] xs:bottom-[4.3rem]"
             />
           </picture>
         </div>
@@ -63,7 +63,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             {fullName}
           </h1>
           {/* About */}
-          <p className="w-full text-gray-700 dark:text-gray-400 text-md text-pretty sm:text-center xs:text-justify">
+          <p className="w-96 md:w-full lg:w-full text-gray-600 dark:text-gray-400   sm:text-lg  text-pretty sm:text-center xs:text-justify">
             {aboutText}
           </p>
 
