@@ -2,6 +2,7 @@
 // components/BlogsComponent.tsx
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import IconButtons from "../ui-utils/IconButtons";
 
 interface Post {
   _id: string;
@@ -119,6 +120,10 @@ const BlogsComponent: React.FC = () => {
             ))}
         </div>
       </div>
+
+      {/* <Thanks /> */}
+
+      <IconButtons />
     </section>
   );
 };

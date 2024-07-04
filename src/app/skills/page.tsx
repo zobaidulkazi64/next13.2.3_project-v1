@@ -1,9 +1,12 @@
-import React from 'react'
+
+import SkillsShow from '@/components/skills/SkillsShow';
 
 const SkillsPage = () => {
   return (
-    <div>SkillsPage</div>
-  )
+    <div>
+      <SkillsShow  />
+    </div>
+  );
 }
 
 export default SkillsPage
