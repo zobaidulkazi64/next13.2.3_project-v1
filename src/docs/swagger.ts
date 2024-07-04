@@ -1,5 +1,6 @@
 import { createSwaggerSpec } from "next-swagger-doc";
-import {User} from '@/docs'
+import User from "./user/User.json";
+
 
 export const getApiDocs = async () => {
   const spec = createSwaggerSpec({
@@ -44,13 +45,15 @@ export const getApiDocs = async () => {
         "/api/hello": {
           get: {
             tags: ["User"],
-            User,
+            User
           },
 
           post: {
             tags: ["User"],
-            User,
+            User
           },
+
+          
         },
       },
 
