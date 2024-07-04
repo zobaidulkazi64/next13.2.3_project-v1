@@ -1,20 +1,26 @@
 // pages/index.tsx
-
 import React from "react";
-import GorgeousBackground from "@/components/ui-utils/GorgeousBackground";
+import AboutMe from "@/components/about/AboutMe";
 
-const Home: React.FC = () => {
+const IndexPage: React.FC = () => {
+  // Example data
+  const aboutMeData = {
+    fullName: "Samuel Abera",
+    aboutText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    profileImageUrl:
+      "https://avatars.githubusercontent.com/u/105772384?s=400&u=df755c27d467d3921d4dc034868ed982d6ded9bb&v=4",
+    coverImageUrl: "https://images.unsplash.com/...",
+    linkedinUrl: "https://www.linkedin.com/in/samuel-abera-6593a2209/",
+    twitterUrl: "https://twitter.com/Samuel7Abera7",
+    facebookUrl: "https://www.facebook.com/",
+    youtubeUrl: "https://www.youtube.com/@silentcoder7",
+  };
+
   return (
-    <GorgeousBackground>
-      <div className="p-10 text-white">
-        <h1 className="text-4xl font-bold">Hello World!</h1>
-        <p>
-          This is a gorgeous background component using Tailwind CSS and Next.js
-          with TypeScript.
-        </p>
-      </div>
-    </GorgeousBackground>
+    <div className="min-h-screen">
+      <AboutMe {...aboutMeData} />
+    </div>
   );
 };
 
-export default Home;
+export default IndexPage;
