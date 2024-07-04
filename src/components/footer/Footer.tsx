@@ -1,10 +1,10 @@
 import React from "react";
-import FacebookIcon from "@/components/icons/FacebookIcon";
-import LinkedInIcon from "@/components/icons/LinkedInIcon";
-import GitHubIcon from "@/components/icons/GitHubIcon";
-import InstagramIcon from "@/components/icons/InstagramIcon";
-import XIcon from "@/components/icons/XIcon";
-import TelegramIcons from "@/components/icons/TelegramIcons";
+import FacebookIcon from "@/assets/icons/FacebookIcon";
+import LinkedInIcon from "@/assets/icons/LinkedInIcon";
+import GitHubIcon from "@/assets/icons/GitHubIcon";
+import InstagramIcon from "@/assets/icons/InstagramIcon";
+import XIcon from "@/assets/icons/XIcon";
+import TelegramIcons from "@/assets/icons/TelegramIcons";
 import Link from "next/link";
 
 const socialLinks = [
