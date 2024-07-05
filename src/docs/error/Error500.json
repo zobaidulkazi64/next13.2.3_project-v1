@@ -1,16 +1,22 @@
 {
-  "content": {
-    "application/json": {
-      "schema": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "A message describing the error.",
-            "example": "Internal server error."
-          }
-        }
+  "Error500": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "A message describing the error."
       }
+    },
+    "example": {
+      "message": "Internal server error: Unexpected server issue.",
+      "data": null,
+      "errors": null,
+      "meta": null,
+      "links": null,
+      "headers": null,
+      "status": 500,
+      "timestamp": "2022-01-01T00:00:00.000Z",
+      "trace": null
     }
   }
 }

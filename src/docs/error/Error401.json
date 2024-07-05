@@ -1,18 +1,22 @@
 {
-  "content": {
-    "application/json": {
-      "schema": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "A message describing the error."
-          }
-        },
-        "example": {
-          "message": "Unauthorized access, token expired."
-        }
+  "Error401": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "A message describing the error."
       }
+    },
+    "example": {
+      "message": "Unauthorized: Access token expired.",
+      "data": null,
+      "errors": null,
+      "meta": null,
+      "links": null,
+      "headers": null,
+      "status": 401,
+      "timestamp": "2022-01-01T00:00:00.000Z",
+      "trace": null
     }
   }
 }

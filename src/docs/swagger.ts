@@ -1,6 +1,6 @@
 // docs/swagger.ts
 import { createSwaggerSpec } from "next-swagger-doc";
-import {User,Login} from "@/docs"
+import {User,Login, Signup} from "@/docs/user"
 import {Error400,Error401,Error404, Error500} from "@/docs/error"
 
 export const getApiDocs = async () => {
@@ -46,17 +46,17 @@ export const getApiDocs = async () => {
 
       paths: {
         ...User,
-        ...Error400,
-        ...Error401,
-        ...Error404,
-        ...Error500
-        
       },
       
 
       components: {
         schemas: {
-          ...Login
+          ...Login,
+          ...Signup,
+          ...Error404,
+          ...Error400,
+          ...Error401,
+          ...Error500
         },
         securitySchemes: {
           BearerAuth: {

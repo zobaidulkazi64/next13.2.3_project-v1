@@ -1,0 +1,311 @@
+{
+    "Signup": {
+        "type": "object",
+        "properties": {
+            "email": {
+                "type": "string",
+                "description": "The email of the user",
+                "example": "example@example.com",
+                "required": true,
+                "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "password": {
+                "type": "string",
+                "description": "The password of the user",
+                "example": "examplePassword123@yaml",
+                "required": true,
+                "minLength": 1,
+                "maxLength": 255
+            },
+            "role": {
+                "type": "string",
+                "description": "The role of the user",
+                "example": "admin",
+                "required": true,
+                "enum": ["admin", "user"]
+            },
+            "skills": {
+                "type": "array",
+                "description": "The skills of the user",
+                "example": [
+                    "Node.js",
+                    "Express",
+                    "Prisma"
+                ],
+                "required": true
+            },
+            "interests": {
+                "type": "array",
+                "description": "The interests of the user",
+                "example": [
+                    "JavaScript",
+                    "Python",
+                    "C++",
+                    "Java",
+                    "PHP",
+                    "C#",
+                    "Ruby"
+                ],
+                "required": true
+            },
+            "experience": {
+                "type": "array",
+                "description": "The experience of the user",
+                "example": [
+                    "Node.js",
+                    "Express",
+                    "Prisma",
+                    "MongoDB",
+                    "MySQL",
+                    "PostgreSQL"
+                ],
+                "required": true
+            },
+            "languages": {
+                "type": "array",
+                "description": "The languages of the user",
+                "example": [
+                    "English",
+                    "Spanish",
+                    "French",
+                    "Portuguese",
+                    "German"
+                ],
+                "required": true
+            },
+            "github": {
+                "type": "string",
+                "description": "The github of the user",
+                "example": "https://github.com/example",
+                "default": "https://github.com/example",
+                "required": true
+            },
+            "linkedin": {
+                "type": "string",
+                "description": "The linkedin of the user",
+                "example": "https://www.linkedin.com/in/example",
+                "default": "https://www.linkedin.com/in/example",
+                "required": true
+            },
+            "twitter": {
+                "type": "string",
+                "description": "The twitter of the user",
+                "example": "https://twitter.com/example",
+                "default": "https://twitter.com/example",
+                "required": true
+            },
+            "website": {
+                "type": "string",
+                "description": "The website of the user",
+                "example": "https://example.com",
+                "default": "https://example.com",
+                "required": true
+            },
+            "about": {
+                "type": "string",
+                "description": "The about of the user",
+                "example": "I am an example user",
+                "default": "I am an example user",
+                "required": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the user",
+                "example": "Example User",
+                "default": "Example User",
+                "required": true
+            },
+            "avatar": {
+                "type": "string",
+                "description": "The avatar of the user",
+                "example": "https://example.com/avatar.png",
+                "default": "https://example.com/avatar.png",
+                "required": true
+            },
+            "cover": {
+                "type": "string",
+                "description": "The cover of the user",
+                "example": "https://example.com/cover.png",
+                "default": "https://example.com/cover.png",
+                "required": true
+            },
+            "birthday": {
+                "type": "string",
+                "description": "The birthday of the user",
+                "example": "1990-01-01",
+                "default": "1990-01-01",
+                "required": true
+            },
+            "gender": {
+                "type": "string",
+                "description": "The gender of the user",
+                "example": "male",
+                "default": "male",
+                "required": true
+            },
+            "address": {
+                "type": "string",
+                "description": "The address of the user",
+                "example": "Example Address",
+                "default": "Example Address",
+                "required": true
+            },
+            "phone": {
+                "type": "string",
+                "description": "The phone of the user",
+                "example": "1234567890",
+                "default": "1234567890",
+                "required": true
+            },
+            "country": {
+                "type": "string",
+                "description": "The country of the user",
+                "example": "Example Country",
+                "default": "Example Country",
+                "required": true
+            },
+            "city": {
+                "type": "string",
+                "description": "The city of the user",
+                "example": "Example City",
+                "default": "Example City",
+                "required": true
+            },
+            "state": {
+                "type": "string",
+                "description": "The state of the user",
+                "example": "Example State",
+                "default": "Example State",
+                "required": true
+            },
+            "zip": {
+                "type": "string",
+                "description": "The zip of the user",
+                "example": "12345",
+                "default": "12345",
+                "required": true
+            },
+            "ssn": {
+                "type": "string",
+                "description": "The ssn of the user",
+                "example": "123456789",
+                "default": "123456789",
+                "required": true
+            },
+            "id": {
+                "type": "string",
+                "description": "The id of the user",
+                "example": "123456789",
+                "default": "123456789",
+                "required": true
+            },
+            "created_at": {
+                "type": "string",
+                "description": "The created at of the user",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "updated_at": {
+                "type": "string",
+                "description": "The updated at of the user",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "deleted_at": {
+                "type": "string",
+                "description": "The deleted at of the user",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "is_deleted": {
+                "type": "boolean",
+                "description": "The is deleted of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_active": {
+                "type": "boolean",
+                "description": "The is active of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_verified": {
+                "type": "boolean",
+                "description": "The is verified of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_suspended": {
+                "type": "boolean",
+                "description": "The is suspended of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_banned": {
+                "type": "boolean",
+                "description": "The is banned of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_admin": {
+                "type": "boolean",
+                "description": "The is admin of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_staff": {
+                "type": "boolean",
+                "description": "The is staff of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_superuser": {
+                "type": "boolean",
+                "description": "The is superuser of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_email_verified": {
+                "type": "boolean",
+                "description": "The is email verified of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "is_phone_verified": {
+                "type": "boolean",
+                "description": "The is phone verified of the user",
+                "example": true,
+                "default": true,
+                "required": true
+            },
+            "last_login": {
+                "type": "string",
+                "description": "The last login of the user",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "last_activity": {
+                "type": "string",
+                "description": "The last activity of the user",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            }
+        }
+    }
+}

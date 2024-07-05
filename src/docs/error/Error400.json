@@ -1,18 +1,22 @@
 {
-    "content": {
-        "application/json": {
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "message": {
-                        "type": "string",
-                        "description": "A message describing the error."
-                    }
-                },
-                "example": {
-                    "message": "Internal server error."
-                }
-            }
-        }
+  "Error400": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string",
+        "description": "A message describing the error."
+      }
+    },
+    "example": {
+      "message": "Bad request: Invalid input data.",
+      "data": null,
+      "errors": null,
+      "meta": null,
+      "links": null,
+      "headers": null,
+      "status": 400,
+      "timestamp": "2022-01-01T00:00:00.000Z",
+      "trace": null
     }
+  }
 }
