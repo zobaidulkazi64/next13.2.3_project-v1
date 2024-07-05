@@ -1,54 +1,60 @@
-// import Blog from "@/models/blog/Blog";
-// import { NextResponse, NextRequest } from "next/server";
-// import dbConnect from "@/utils/dbConnection";
-// import { Types } from "mongoose";
-// import { blogSchema } from "@/schemas/blogSchema";
+import Blog from "@/models/blog/Blog";
+import { NextResponse, NextRequest } from "next/server";
+import dbConnect from "@/utils/dbConnection";
+import { Types } from "mongoose";
+import { blogSchema } from "@/schemas/blogSchema";
 
-// interface Params {
-//   params: {
-//     id: string;
-//   };
-// }
+interface Params {
+  params: {
+    id: string;
+  };
+}
 
-// // get notice by id
-// export async function GET(request: NextRequest, { params }: Params) {
-//   try {
-//     // Connect to the database
-//     await dbConnect();
+// get notice by id
+export async function GET(request: NextRequest, { params }: Params) {
+  try {
+    // Connect to the database
+    await dbConnect();
 
-//     // Get the ID from the request params
-//     const { id } = params;
+    // Get the ID from the request params
+    const { id } = params;
 
-//     console.log(params.id);
+    console.log(params.id);
 
-//     // Check if the ID is a valid ObjectId
-//     if (!Types.ObjectId.isValid(id)) {
-//       return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
-//     }
+    // // Check if the ID is a valid ObjectId
+    // if (!Types.ObjectId.isValid(id)) {
+    //   return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+    // }
 
-//     // Fetch the notice by ID from the database
-//     const notice = await Blog.findById(id);
+    // // Fetch the notice by ID from the database
+    // const notice = await Blog.findById(id);
 
-//     // Check if the notice exists
-//     if (!notice) {
-//       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
-//     }
+    // // Check if the notice exists
+    // if (!notice) {
+    //   return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+    // }
 
-//     // Respond with the fetched notice
-//     return NextResponse.json({ notice });
-//   } catch (error) {
-//     // Log the error for debugging purposes
-//     console.error("Error fetching Blog:", error);
+    // Respond with the fetched notice
+    return NextResponse.json({
+      success: true,
+      message: "Blog fetched successfully",
+      data: {
+        // notice,
+      }
+    });
+  } catch (error) {
+    // Log the error for debugging purposes
+    console.error("Error fetching Blog:", error);
 
-//     // Respond with an error message
-//     return NextResponse.json(
-//       { error: "Internal Server Error" },
-//       { status: 500 }
-//     );
-//   }
-// }
+    // Respond with an error message
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
 
-// // update notice
+// update notice
 
 // export async function PUT(request: NextRequest, { params }: Params) {
 //   try {
@@ -95,4 +101,4 @@
 //   }
 // }
 
-// // delete notice
+// delete notice
