@@ -2,48 +2,77 @@
     "Blogs": {
         "type": "object",
         "properties": {
-            "id": {
-                "type": "string",
-                "description": "The id of the blog",
-                "example": "123456789",
-                "default": "123456789",
-                "required": true
-            },
-            "created_at": {
-                "type": "string",
-                "description": "The created at of the blog",
-                "example": "2022-01-01T00:00:00.000Z",
-                "default": "2022-01-01T00:00:00.000Z",
-                "required": true
-            },
-            "updated_at": {
-                "type": "string",
-                "description": "The updated at of the blog",
-                "example": "2022-01-01T00:00:00.000Z",
-                "default": "2022-01-01T00:00:00.000Z",
-                "required": true
-            },
-            "deleted_at": {
-                "type": "string",
-                "description": "The deleted at of the blog",
-                "example": "2022-01-01T00:00:00.000Z",
-                "default": "2022-01-01T00:00:00.000Z",
-                "required": true
-            },
-            "title": {
-                "type": "string",
-                "description": "The title of the blog",
-                "example": "Example Title",
-                "default": "Example Title",
-                "required": true
-            },
-            "body": {
-                "type": "string",
-                "description": "The body of the blog",
-                "example": "Example Body",
-                "default": "Example Body",
-                "required": true
-            }
+          "id": {
+            "type": "string",
+            "description": "The id of the blog", 
+            "example": "507f1f77bcf86cd799439011",
+            "default": "507f1f77bcf86cd799439011",
+            "required": true,
+            "readOnly": true
+          },
+
+          "title": {
+            "type": "string",
+            "description": "The title of the blog",
+            "example": "Gratitude is when memory is stored in the heart and not in the mind!",
+            "default": "Gratitude is when memory is stored in the heart and not in the mind!",
+            "required": true
+          },
+          "contain": {
+            "type": "string",
+            "description": "The Contain of the blog",
+            "example": "As a software developer, success doesn't just come from luck or chance. It is the result of years of hard work, continuous learning and development, and forming good habits. In the fast-paced world of technology, success is often achieved through collaboration, collaboration, and collaboration.",
+            "default": "example",
+            "required": true,
+            "req": true,
+            "maxLength": 1500,
+            "minLength": 1
+
+            
+          },
+          "image": {
+            "type": "string",
+            "description": "The image of the blog",
+            "example": "https://media.dev.to/cdn-cgi/image/4bchs.jpg",
+            "default": "https://example.com/image.jpg"
+          },
+          "tags": {
+            "type": "array",
+            "description": "The tags of the blog",
+            "example": [
+              "NodeJs",
+              "TypeScript",
+              "JavaScript"
+            ],
+            "default": [
+              "tag1",
+              "tag2",
+              "tag3"
+            ],
+            "required": true,
+            "upTo": 3
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The updated at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "The deleted at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          }
         }
     }
 }

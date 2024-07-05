@@ -31,11 +31,7 @@ export const getApiDocs = async () => {
         {
           name: "Auth",
           description: "User related end-points",
-        },
-        {
-          name: "Post",
-          description: "Post related end-points",
-        },
+        }
       ],
 
       securityDefinitions: {
