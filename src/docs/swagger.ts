@@ -2,6 +2,9 @@
 import { createSwaggerSpec } from "next-swagger-doc";
 import {User,Login, Signup} from "@/docs/user"
 import {Error400,Error401,Error404, Error500} from "@/docs/error"
+import {Blog, Blogs} from "@/docs/blog"
+
+
 
 export const getApiDocs = async () => {
   const spec = createSwaggerSpec({
@@ -21,7 +24,7 @@ export const getApiDocs = async () => {
         {
           url: "http://localhost:3000/api-docs",
           description: "Local Server",
-        }
+        },
       ],
 
       tags: [
@@ -33,7 +36,6 @@ export const getApiDocs = async () => {
           name: "Post",
           description: "Post related end-points",
         },
-        
       ],
 
       securityDefinitions: {
@@ -46,17 +48,21 @@ export const getApiDocs = async () => {
 
       paths: {
         ...User,
+        ...Blog,
       },
-      
 
       components: {
         schemas: {
-          ...Login,
           ...Signup,
-          ...Error404,
+          ...Login,
+          //
+          ...Blogs,
+
+          
           ...Error400,
           ...Error401,
-          ...Error500
+          ...Error404,
+          ...Error500,
         },
         securitySchemes: {
           BearerAuth: {
@@ -65,7 +71,6 @@ export const getApiDocs = async () => {
             bearerFormat: "JWT",
           },
         },
-      
       },
       security: [],
     },

@@ -1,0 +1,49 @@
+{
+    "Blogs": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "string",
+                "description": "The id of the blog",
+                "example": "123456789",
+                "default": "123456789",
+                "required": true
+            },
+            "created_at": {
+                "type": "string",
+                "description": "The created at of the blog",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "updated_at": {
+                "type": "string",
+                "description": "The updated at of the blog",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "deleted_at": {
+                "type": "string",
+                "description": "The deleted at of the blog",
+                "example": "2022-01-01T00:00:00.000Z",
+                "default": "2022-01-01T00:00:00.000Z",
+                "required": true
+            },
+            "title": {
+                "type": "string",
+                "description": "The title of the blog",
+                "example": "Example Title",
+                "default": "Example Title",
+                "required": true
+            },
+            "body": {
+                "type": "string",
+                "description": "The body of the blog",
+                "example": "Example Body",
+                "default": "Example Body",
+                "required": true
+            }
+        }
+    }
+}

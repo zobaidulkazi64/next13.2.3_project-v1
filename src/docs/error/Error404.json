@@ -10,13 +10,8 @@
     "example": {
       "message": "Not found: Resource not found.",
       "data": null,
-      "errors": null,
-      "meta": null,
-      "links": null,
-      "headers": null,
-      "status": 404,
-      "timestamp": "2022-01-01T00:00:00.000Z",
-      "trace": null
+      "status": 500,
+      "timestamp": "2022-01-01T00:00:00.000Z"
     }
   }
 }

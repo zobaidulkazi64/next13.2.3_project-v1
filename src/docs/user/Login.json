@@ -25,6 +25,18 @@
         "example": "admin",
         "required": true,
         "enum": ["admin", "user"]
+      },
+      "timestamp": {
+        "type": "string",
+        "description": "The timestamp of the user",
+        "example": "2022-01-01T00:00:00.000Z",
+        "required": true
+      },
+      "token": {
+        "type": "string",
+        "description": "The token of the user",
+        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+        "required": true
       }
     }
   }

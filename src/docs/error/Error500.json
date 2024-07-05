@@ -10,13 +10,8 @@
     "example": {
       "message": "Internal server error: Unexpected server issue.",
       "data": null,
-      "errors": null,
-      "meta": null,
-      "links": null,
-      "headers": null,
       "status": 500,
-      "timestamp": "2022-01-01T00:00:00.000Z",
-      "trace": null
+      "timestamp": "2022-01-01T00:00:00.000Z"
     }
   }
 }
