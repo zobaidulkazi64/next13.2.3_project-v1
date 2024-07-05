@@ -4,7 +4,7 @@ import {User,Login, Signup} from "@/docs/user"
 import {Error400,Error401,Error404, Error500} from "@/docs/error"
 import {Blog, Blogs} from "@/docs/blog"
 import {Contact, Contacts} from "@/docs/contact"
-
+import {About, AboutMe} from '@/docs/about'
 
 export const getApiDocs = async () => {
   const spec = createSwaggerSpec({
@@ -47,6 +47,8 @@ export const getApiDocs = async () => {
         ...Blog,
 
         ...Contact,
+
+        ...About,
       },
 
       components: {
@@ -57,6 +59,8 @@ export const getApiDocs = async () => {
           ...Blogs,
 
           ...Contacts,
+
+          ...AboutMe,
 
           
           ...Error400,

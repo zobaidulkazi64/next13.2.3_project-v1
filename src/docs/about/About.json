@@ -1,15 +1,15 @@
 {
-    "/create_blog": {
+    "/create_about": {
         "post": {
-            "tags": ["Blog"],
-            "summary": "Create blog",
-            "description": "Create blog",
+            "tags": ["About"],
+            "summary": "Create About",
+            "description": "Create About",
             "requestBody": {
                 "required": true,
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "#/components/schemas/Blogs"
+                            "$ref": "#/components/schemas/AboutMe"
                         }
                     }
                 }
@@ -20,7 +20,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Blogs"
+                                "$ref": "#/components/schemas/AboutMe"
                             }
 
                         }
@@ -52,11 +52,11 @@
         }
     },
 
-    "/blogs_all": {
+    "/AboutMe": {
         "get": {
-            "tags": ["Blog"],
-            "summary": "Get all blogs",
-            "description": "Get all blogs",
+            "tags": ["About"],
+            "summary": "Get all about data",
+            "description": "Get all About",
             "responses": {
                 "200": {
                     "description": "OK",
@@ -65,7 +65,7 @@
                             "schema": {
                                 "type": "array",
                                 "items": {
-                                    "$ref": "#/components/schemas/Blogs"
+                                    "$ref": "#/components/schemas/AboutMe"
                                 }
                             }
                         }
@@ -107,11 +107,11 @@
         }
     },
 
-    "/blogs/{id}": {
+    "/AboutMe/{id}": {
         "get": {
-            "tags": ["Blog"],
-            "summary": "Get blog by id",
-            "description": "Get blog by id",
+            "tags": ["About"],
+            "summary": "Get About by id",
+            "description": "Get About by id",
             "parameters": [
                 {
                     "name": "id",
@@ -128,7 +128,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Blogs"
+                                "$ref": "#/components/schemas/AboutMe"
                             }
                         }
                     }
@@ -167,11 +167,11 @@
         }
     },
     
-    "/update_blog/{id}": {
+    "/update_about/{id}": {
         "put": {
-            "tags": ["Blog"],
-            "summary": "Update blog",
-            "description": "Update blog",
+            "tags": ["About"],
+            "summary": "Update About",
+            "description": "Update About",
             "parameters": [
                 {
                     "name": "id",
@@ -187,7 +187,7 @@
                 "content": {
                     "application/json": {
                         "schema": {
-                            "$ref": "#/components/schemas/Blogs"
+                            "$ref": "#/components/schemas/AboutMe"
                         }
                     }
                 }
@@ -198,7 +198,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Blogs"
+                                "$ref": "#/components/schemas/AboutMe"
                             }
                         }
                     }
@@ -227,11 +227,11 @@
         }
     },
 
-    "/delete_blog/{id}": {
+    "/delete_about/{id}": {
         "delete": {
-            "tags": ["Blog"],
-            "summary": "Delete blog",
-            "description": "Delete blog",
+            "tags": ["About"],
+            "summary": "Delete About",
+            "description": "Delete About",
             "parameters": [
                 {
                     "name": "id",
@@ -244,11 +244,11 @@
             ],
             "responses": {
                 "200": {
-                    "description": "Blog Deleted  Success",
+                    "description": "About Deleted  Success",
                     "content": {    
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Blogs"
+                                "$ref": "#/components/schemas/AboutMe"
                             }
                         }
                     }

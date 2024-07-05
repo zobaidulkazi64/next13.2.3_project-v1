@@ -1,0 +1,148 @@
+{
+    "AboutMe": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of the About Item id", 
+            "example": "507f1f77bcf86cd799439011",
+            "default": "507f1f77bcf86cd799439011",
+            "required": true,
+            "readOnly": true
+          },
+
+          "name": {
+            "type": "string",
+            "description": "name of the About Item",
+            "example": "zobaidulkazi",
+            "default": "zobaidulkazi",
+            "required": true
+          },
+          "description": {
+            "type": "string",
+            "description": "The Contain of the ",
+            "example": "As a software developer, success doesn't just come from luck or chance. It is the result of years of hard work, continuous learning and development, and forming good habits. In the fast-paced world of technology, success is often achieved through collaboration, collaboration, and collaboration.",
+            "default": "example",
+            "required": true,
+            "req": true,
+            "maxLength": 1500,
+            "minLength": 1
+
+            
+          },
+          "image": {
+            "type": "string",
+            "description": "The image of the blog",
+            "example": "https://media.dev.to/cdn-cgi/image/4bchs.jpg",
+            "default": "https://example.com/image.jpg"
+          },
+          "cover-image": {
+            "type": "string",
+            "description": "The cover image of the About Me",
+            "example": "https://media.dev.to/cdn-cgi/image/4bchs.jpg",
+            "default": "https://example.com/image.jpg",
+            "required": true
+          },
+          "tags": {
+            "type": "array",
+            "description": "The tags of the blog",
+            "example": [
+              "Full Stack",
+              "Backend",
+              "Frontend"
+            ],
+            "default": [
+              "tag1",
+              "tag2",
+              "tag3"
+            ],
+            "required": true,
+            "upTo": 3
+          },
+          "education": {
+            "type": "array",
+            "description": "The education of the Person",
+            "required": true,
+             "instituteName": {
+               "type": "string",
+               "description": "The institute name of the Person",
+               "example": "Mymensingh Polytechnic Institute",
+               "default": "Mymensingh Polytechnic Institute",
+               "required": true
+             },
+             "degree": {
+               "type": "string",
+               "description": "The degree of the Person",
+               "example": "Diploma In Engineering",
+               "default": "Diploma In Engineering",
+               "required": true
+             },
+             "skills": {
+               "type": "array",
+               "description": "The skills of the Person",
+               "example": [
+                 "C, C++",
+                 "Python"
+               ],
+               "default": [
+                 "C, C++",
+                 "Python"
+               ],
+               "required": true
+             },
+             "year": {
+               "type": "string",
+               "description": "The year of the Person",
+               "example": "2022",
+               "default": "2022",
+               "required": true
+             },
+             "subject": {
+               "type": "string",
+               "description": "The subject of the Person",
+               "example": "Computer Science",
+               "default": "Computer Science",
+               "required": true
+             },
+             "result": {
+               "type": "string",
+               "description": "The result of the Person",
+               "example": "5.00",
+               "default": "5.00",
+               "required": true
+             },
+             "location": {
+               "type": "string",
+               "description": "The location of the Person",
+               "example": "Mymensingh, Bangladesh",
+               "default": "Mymensingh, Bangladesh",
+               "required": true,
+               "trim": true,
+               "upTo": 50
+             }
+             
+          },
+          "created_at": {
+            "type": "string",
+            "description": "The created at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "The updated at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          },
+          "deleted_at": {
+            "type": "string",
+            "description": "The deleted at of the blog",
+            "example": "2022-01-01T00:00:00.000Z",
+            "default": "2022-01-01T00:00:00.000Z",
+            "required": true
+          }
+        }
+    }
+}
