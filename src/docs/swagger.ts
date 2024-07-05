@@ -3,7 +3,7 @@ import { createSwaggerSpec } from "next-swagger-doc";
 import {User,Login, Signup} from "@/docs/user"
 import {Error400,Error401,Error404, Error500} from "@/docs/error"
 import {Blog, Blogs} from "@/docs/blog"
-
+import {Contact, Contacts} from "@/docs/contact"
 
 
 export const getApiDocs = async () => {
@@ -45,6 +45,8 @@ export const getApiDocs = async () => {
       paths: {
         ...User,
         ...Blog,
+
+        ...Contact,
       },
 
       components: {
@@ -53,6 +55,8 @@ export const getApiDocs = async () => {
           ...Login,
           //
           ...Blogs,
+
+          ...Contacts,
 
           
           ...Error400,
