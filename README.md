@@ -3,9 +3,9 @@
 ## created by zobaidulkazi
 
 
-### api docs
+### API Documenents
 
-[https://zobkazi.github.io/api-docs/](https://zobkazi.github.io/api-docs/)
+[https://zobkazi.github.io/api-docs/](https://zobkazi.github.io/api-docs)
 
 ##### Clone this repository & used it as a full stack nextjs project;
 
