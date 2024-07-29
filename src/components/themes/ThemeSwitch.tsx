@@ -35,32 +35,32 @@ const ThemeSwitch = () => {
   return (
     <div className="relative sm:ml-14">
       <button
-        className=" rounded-full justify-center p-2  shadow-lg shadow-neutral-400"
+        className=" rounded-full bg-purple-300 dark:bg-purple-500 justify-center p-2  shadow-lg shadow-neutral-400"
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
         <span>{getIcon(theme || "system")}</span>
       </button>
 
       {dropdownOpen && (
-        <ul className="absolute right-0 z-10 mt-2 p-2   rounded-full shadow-lg shadow-neutral-400 ">
+        <ul className="absolute right-0 bg-red-400 z-10 mt-2 p-2   rounded-full shadow-lg shadow-neutral-400 ">
           <li
-            className={`cursor-pointer flex items-center justify-center w-full h-12`}
+            className={`cursor-pointer flex items-center  justify-center w-full h-12`}
             onClick={() => handleThemeChange("light")}
           >
-            <SunIcon className="w-6 h-6" />
+            <SunIcon className="w-6 h-6 hover:bg-purple-500" />
           </li>
 
           <li
             className={`cursor-pointer flex items-center justify-center w-full h-12`}
             onClick={() => handleThemeChange("dark")}
           >
-            <MoonIcon className="w-6 h-6" />
+            <MoonIcon className="w-6 h-6 hover:bg-purple-500" />
           </li>
           <li
             className={`cursor-pointer flex items-center justify-center w-full h-12`}
             onClick={() => handleThemeChange("system")}
           >
-            <DesktopIcon className="w-6 h-6" />
+            <DesktopIcon className="w-6 h-6 hover:bg-purple-500" />
           </li>
         </ul>
       )}

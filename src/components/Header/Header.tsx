@@ -35,7 +35,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-30 transition-all duration-300 ${
+      className={`sticky top-0  w-full z-30 transition-all duration-300 ${
         isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "bg-transparent"
       }`}
     >
@@ -43,7 +43,7 @@ const Header = () => {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
             <Link href="/">
-            <Avatar src="https://avatars.githubusercontent.com/u/105772384?v=4"  fallback="ZK" />
+              ZK
             </Link>
           </div>
           <div className="flex items-center lg:order-2">

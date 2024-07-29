@@ -1,7 +1,7 @@
 import React from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
-import { dropdownMenuData } from "@/contexts/dropdownMenuData";
+import { dropdownMenuData } from "@/contexts/data/dropdownMenuData";
 
 const renderMenuItems = (items: any[]) => {
   return items.map((item, index) => {
