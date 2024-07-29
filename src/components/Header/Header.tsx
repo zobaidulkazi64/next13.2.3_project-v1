@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import DropdownMenuComponent from "./DropdownMenuComponent";
+import ThemeSwitch from "../themes/ThemeSwitch";
 
 const navItems = [
   { href: "#", label: "Home", current: true },
@@ -46,8 +47,8 @@ const Header = () => {
               <div className="flex items-center rounded-full border p-1">
                 <span className="ml-1">English</span>
               </div>
-              <div className="flex items-center rounded-full border p-1">
-                themes
+              <div className="flex items-center">
+               <ThemeSwitch />
               </div>
             </div>
             <button
