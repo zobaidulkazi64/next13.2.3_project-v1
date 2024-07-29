@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import DropdownMenuComponent from "./DropdownMenuComponent";
 import ThemeSwitch from "../themes/ThemeSwitch";
+import Link from "next/link";
+import { Avatar } from "@radix-ui/themes";
 
 const navItems = [
-  { href: "#", label: "Home", current: true },
-  { href: "#", label: "Company" },
-  { href: "#", label: "Marketplace" },
-  { href: "#", label: "Features" },
-  { href: "#", label: "Team" },
-  { href: "#", label: "Contact" },
+  { href: "/me", label: "Me", current: true },
+  { href: "/projects", label: "Projects" },
+  { href: "/tec", label: "Technologies Stack" },
+  { href: "/blogs", label: "Blogs" },
 ];
 
 const Header = () => {
@@ -36,12 +36,16 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full z-30 transition-all duration-300 ${
-        isScrolled ? "bg-purple-900 shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "bg-transparent"
       }`}
     >
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <div className="flex items-center rounded-full border p-1">ZK</div>
+          <div className="flex items-center">
+            <Link href="/">
+            <Avatar src="https://avatars.githubusercontent.com/u/105772384?v=4"  fallback="ZK" />
+            </Link>
+          </div>
           <div className="flex items-center lg:order-2">
             <div className="flex items-center ml-3 space-x-8">
               <div className="flex items-center rounded-full border p-1">
@@ -76,9 +80,9 @@ const Header = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    className={`block py-2 pr-4 pl-3 ${
+                    className={`block  text-gray-700 rounded lg:hover:bg-purple-100 lg:p-0 lg:rounded py-2 pr-4 pl-3 ${
                       item.current
-                        ? "text-white rounded bg-purple-700 lg:bg-white lg:text-white lg:p-0 lg:hover:bg-purple-100"
+                        ? "text-primary-700 bg-purple-100 lg:bg-purple-100 lg:text-primary-700"
                         : "text-gray-700 border-b border-gray-100 hover:bg-purple-100 lg:hover:bg-purple-100 lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-purple-300 dark:hover:text-white lg:dark:hover:bg-primary-700 dark:border-gray-700"
                     } lg:p-0`}
                     aria-current={item.current ? "page" : undefined}
