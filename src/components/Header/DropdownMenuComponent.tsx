@@ -17,7 +17,7 @@ const renderMenuItems = (items: any[]) => {
     if (item.type === "submenu") {
       return (
         <DropdownMenu.Sub key={index}>
-          <DropdownMenu.SubTrigger className="px-4 py-2 text-sm bg-green-300 dark:bg-green-500 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-400">
+          <DropdownMenu.SubTrigger className="px-4 py-2 text-sm bg-green-300 dark:bg-green-700 text-gray-700 dark:text-gray-300 hover:bg-purple-300 dark:hover:bg-purple-400">
             {item.label} <span className="ml-2">^</span>
           </DropdownMenu.SubTrigger>
           <DropdownMenu.SubContent className="w-48 bg-white border border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700">
@@ -34,14 +34,14 @@ const renderMenuItems = (items: any[]) => {
           item.color === "red"
             ? "text-red-600 dark:text-red-400"
             : "text-gray-700 dark:text-gray-300"
-        } hover:bg-purple-100 dark:hover:bg-purple-400`}
+        } hover:bg-purple-300 dark:hover:bg-purple-400`}
       >
         {item.href ? (
           <Link href={item.href}>
             <samp className="flex items-center justify-between w-full">
               {item.label}
               {item.shortcut && (
-                <span className="ml-auto text-gray-500">{item.shortcut}</span>
+                <span className="ml-auto text-gray-300">{item.shortcut}</span>
               )}
             </samp>
           </Link>
@@ -63,7 +63,7 @@ const DropdownMenuComponent = () => {
     <div>
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className="inline-flex items-center px-4 py-2 text-sm font-medium hover:bg-purple-100">
+          <button className="inline-flex items-center px-4 py-2 text-sm font-medium hover:bg-purple-300 dark:hover:bg-purple-500">
             Hire Me
             <svg
               className="w-4 h-4 ml-2"
@@ -84,7 +84,7 @@ const DropdownMenuComponent = () => {
         <DropdownMenu.Content
           align="start"
           sideOffset={5}
-          className="w-48 bg-white border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700"
+          className="w-48 bg-slate-50 border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700"
         >
           {renderMenuItems(dropdownMenuData.items)}
         </DropdownMenu.Content>

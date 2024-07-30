@@ -1,5 +1,6 @@
 // types.ts
-export interface HomeData {
+export interface HomePageDataTypes {
+  name: string;
   fullName: string;
   greeting: string;
   appsBuilt: string;

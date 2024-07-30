@@ -4,10 +4,10 @@ import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import DropdownMenuComponent from "./DropdownMenuComponent";
 import ThemeSwitch from "../themes/ThemeSwitch";
 import Link from "next/link";
-import { Avatar } from "@radix-ui/themes";
+;
 
 const navItems = [
-  { href: "/me", label: "Me", current: true },
+  { href: "/me/about", label: "Me", current: true },
   { href: "/projects", label: "Projects" },
   { href: "/tec", label: "Technologies Stack" },
   { href: "/blogs", label: "Blogs" },
@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header
       className={`sticky top-0  w-full z-30 transition-all duration-300 ${
-        isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "shadow-xl"
       }`}
     >
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
