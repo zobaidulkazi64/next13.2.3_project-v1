@@ -51,16 +51,16 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
 
   return (
     <motion.section
-      className="relative p-9 m-3 mt-12 dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      className="container mx-auto p-4 relative    dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
-      <div className="h-full">
+      <div className="">
         {educationDetails.map((detail, index) => (
           <motion.div
             key={index}
-            className="w-full mx-auto bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
+            className="container mx-auto bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
             initial="hidden"
             animate="visible"
             variants={itemVariants}
