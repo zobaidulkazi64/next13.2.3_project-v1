@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Toast from "@/components/common/Toast";
 import FoolishVampire from "@/components/common/card/FoolishVampire";
 import ContactForm, { FormData } from "./ContactForm";
@@ -64,10 +65,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
     }
   };
 
-  return ( 
-    
-    <main className=" m-9 flex overflow-hidden flex-col lg:flex-row dark:text-white shadow-lg rounded-2xl  justify-center">
-      <div className=" flex-1 lg:flex lg:justify-center">
+  return (
+    <main className="m-9 flex overflow-hidden flex-col lg:flex-row dark:text-white shadow-lg rounded-2xl justify-center">
+      <motion.div
+        className="flex-1 lg:flex lg:justify-center"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.3 }}
+      >
         <div className="max-w-lg flex-1 mx-auto px-4 text-black dark:text-white">
           <FoolishVampire />
           <ContactForm
@@ -85,7 +90,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
             />
           )}
         </div>
-      </div>
+      </motion.div>
     </main>
   );
 };

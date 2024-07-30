@@ -37,11 +37,13 @@ const SkillsShow: React.FC = () => {
                    rel="noopener noreferrer"
                    className="inline-block"
                  >
-                   <img
-                     className="inline-block border border-cyan-500 h-20 w-20 rounded-full ring-2 ring-white ring-opacity-50"
-                     src={skill.src}
-                     alt={skill.alt}
-                   />
+                   <picture>
+                     <img
+                       className="inline-block border border-cyan-500 h-20 w-20 rounded-full ring-2 ring-white ring-opacity-50"
+                       src={skill.src}
+                       alt={skill.alt}
+                     />
+                   </picture>
                  </a>
                </Tooltip>
              ))}

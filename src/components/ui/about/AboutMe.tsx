@@ -1,11 +1,9 @@
 // components/AboutMe.tsx
 import React from "react";
 
-import FacebookIcon from "@/assets/icons/FacebookIcon";
-import LinkedInIcon from "@/assets/icons/LinkedInIcon";
-import TelegramIcons from "@/assets/icons/TelegramIcons";
+import {LinkedInIcon, TelegramIcons, XIcon} from '@/assets/icons'
 import Link from "next/link";
-import TwitterIcon from "@/assets/icons/XIcon";
+import AboutTab from "./AboutTab";
 
 
 
@@ -16,9 +14,7 @@ interface AboutMeProps {
   coverImageUrl: string;
   linkedinUrl: string;
   twitterUrl: string;
-  facebookUrl: string;
-  youtubeUrl: string;
-  // Add more social media links as needed
+  telegramUrl: string;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({
@@ -28,18 +24,18 @@ const AboutMe: React.FC<AboutMeProps> = ({
   coverImageUrl,
   linkedinUrl,
   twitterUrl,
-  facebookUrl,
-  youtubeUrl,
+  telegramUrl
+
 }) => {
   return (
-    <section className="w-full overflow-hidden dark:bg-gray-900">
+    <section className="w-full overflow-hidden p-6">
       <div className="w-full mx-auto">
         {/* User Cover IMAGE */}
         <picture>
           <img
             src={coverImageUrl}
             alt="User Cover"
-            className="w-full xl:h-[20rem] lg:h-[22rem] md:h-[16rem] sm:h-[13rem] xs:h-[9.5rem]"
+            className="w-full xl:h-[20rem] rounded-lg shadow-lg lg:h-[22rem] md:h-[16rem] sm:h-[13rem] xs:h-[9.5rem]"
           />
         </picture>
 
@@ -49,7 +45,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
             <img
               src={profileImageUrl}
               alt="User Profile"
-              className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[5rem] sm:h-[5rem] w-[8rem] h-[8rem] xs:w-[8rem] xs:h-[8rem] outline outline-2 outline-yellow-500 shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] xs:bottom-[4.3rem]"
+              className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[5rem] sm:h-[5rem] w-[8rem] h-[8rem] xs:w-[8rem] xs:h-[8rem] outline outline-2 outline-purple-500 shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] xs:bottom-[4.3rem]"
             />
           </picture>
         </div>
@@ -66,40 +62,21 @@ const AboutMe: React.FC<AboutMeProps> = ({
 
           {/* Social Links */}
           <div className="px-2 flex space-x-3 p-2 rounded-sm bg-gray-200 text-gray-500 dark:bg-gray-700 dark:bg-opacity-30 dark:text-gray-700 hover:text-gray-600 hover:dark:text-gray-400">
+            
+            <Link className="text-white bg-white" href={twitterUrl} target="_blank" rel="noopener noreferrer">
+              <XIcon />
+            </Link>
             <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-              
               <LinkedInIcon />
             </Link>
-            <Link href={twitterUrl} target="_blank" rel="noopener noreferrer">
-              
-              <TwitterIcon />
-            </Link>
-            <Link href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              
-              <FacebookIcon />
-            </Link>
-            <Link href={youtubeUrl} target="_blank" rel="noopener noreferrer">
-              
+            <Link href={telegramUrl} target="_blank" rel="noopener noreferrer">
               <TelegramIcons />
             </Link>
           </div>
 
           {/* Cards */}
-          <div className="w-full flex gap-4 justify-center items-center mt-10">
-            {/* Card 1 */}
-            <div className="xl:w-1/4 xl:h-32 lg:w-1/5 lg:h-32 md:w-1/5 md:h-28 sm:w-1/3 sm:h-[5rem] xs:w-1/3 xs:h-[4rem] flex justify-center items-center rounded-sm text-center text-lg px-6 py-4 border-2 border-dashed border-gray-300 dark:text-white dark:border-2 dark:border-dashed dark:border-gray-700">
-              27
-            </div>
-
-            {/* Card 2 */}
-            <div className="xl:w-1/4 xl:h-32 lg:w-1/5 lg:h-32 md:w-1/5 md:h-28 sm:w-1/3 sm:h-[5rem] xs:w-1/3 xs:h-[4rem] flex justify-center items-center rounded-sm text-center text-lg px-6 py-4 border-2 border-dashed border-gray-300 dark:text-white dark:border-2 dark:border-dashed dark:border-gray-700">
-              777
-            </div>
-
-            {/* Card 3 */}
-            <div className="xl:w-1/4 xl:h-32 lg:w-1/5 lg:h-32 md:w-1/5 md:h-28 sm:w-1/3 sm:h-[5rem] xs:w-1/3 xs:h-[4rem] flex justify-center items-center rounded-sm text-center text-lg px-6 py-4 border-2 border-dashed border-gray-300 dark:text-white dark:border-2 dark:border-dashed dark:border-gray-700">
-              34
-            </div>
+          <div className="">
+            <AboutTab />
           </div>
         </div>
       </div>

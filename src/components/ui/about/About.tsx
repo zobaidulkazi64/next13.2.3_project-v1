@@ -16,6 +16,19 @@ const About = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  // Hover and tap effects
+  const hoverEffects = {
+    scale: 1.05,
+    boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.2)",
+    transition: { duration: 0.3 },
+  };
+
+  const tapEffects = {
+    scale: 0.98,
+    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
+    transition: { duration: 0.2 },
+  };
+
   return (
     <div className="flex flex-col md:flex-row items-center gap-10 md:items-start p-6 max-w-4xl mx-auto space-y-4 md:space-y-0">
       <motion.div
@@ -24,6 +37,8 @@ const About = () => {
         animate="visible"
         variants={imageVariants}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        whileHover={hoverEffects}
+        whileTap={tapEffects}
       >
         <Image
           src={aboutMeData.profileImageUrl}
@@ -39,6 +54,8 @@ const About = () => {
         animate="visible"
         variants={textVariants}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+        whileHover={hoverEffects}
+        whileTap={tapEffects}
       >
         <div className="flex justify-between items-center bg-gray-200 dark:bg-zinc-800 py-1 px-3 rounded-t-lg">
           <div className="flex space-x-2">

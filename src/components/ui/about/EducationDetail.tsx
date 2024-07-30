@@ -1,8 +1,15 @@
-// components/EducationCard.tsx
+"use client";
 
 import Link from "next/link";
 import React from "react";
-import {} from "@radix-ui/react-icons"
+import { motion } from "framer-motion";
+import {
+  AccessibilityIcon,
+  CheckCircledIcon,
+  LightningBoltIcon,
+  BookmarkIcon,
+  StarIcon,
+} from "@radix-ui/react-icons";
 
 interface EducationDetail {
   courseName: string;
@@ -20,13 +27,45 @@ interface EducationCardProps {
 }
 
 const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+  };
+
+  const hoverEffects = {
+    scale: 1.03,
+    boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.2)",
+    transition: { duration: 0.3 },
+  };
+
+  const tapEffects = {
+    scale: 0.98,
+    boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
+    transition: { duration: 0.2 },
+  };
+
   return (
-    <section className="flex flex-col justify-center antialiased  bg-gray-100 dark:bg-gray-800 min-h-screen p-4">
+    <motion.section
+      className="relative p-9 m-3 mt-12 dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className="h-full">
         {educationDetails.map((detail, index) => (
-          <div
+          <motion.div
             key={index}
-            className="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
+            className="w-full mx-auto bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
+            initial="hidden"
+            animate="visible"
+            variants={itemVariants}
+            whileHover={hoverEffects}
+            whileTap={tapEffects}
           >
             <div className="px-6 py-5 border-2 border-green-500 shadow-lg shadow-green-300/30 rounded-lg bg-gray-100 dark:bg-gray-800">
               <div className="flex items-start">
@@ -36,25 +75,25 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                   <div className="flex justify-between items-center mb-3">
                     {/* Title */}
                     <h2 className="text-2xl leading-snug font-extrabold text-gray-800 dark:text-gray-100 truncate mb-1 sm:mb-0">
-                     
+                      <AccessibilityIcon />
                       {detail.schoolName}
                     </h2>
                     {/* Duration */}
                     <div className="flex items-center space-x-2">
-                      
                       <span className="text-sm text-gray-600 dark:text-gray-400">
+                        <BookmarkIcon className="w-5 h-5 text-green-600" />
                         {detail.years}
                       </span>
                     </div>
                   </div>
                   {/* Course Name */}
-                  <div className="mb-2 text-xl font-semibold text-gray-700 dark:text-gray-200">
-                   
+                  <div className="flex items-center gap-2 mb-2 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                    <CheckCircledIcon className="w-6 h-6 text-green-600" />
                     {detail.courseName}
                   </div>
                   {/* Location */}
                   <div className="mb-2 flex items-center space-x-2 text-gray-600 dark:text-gray-400">
-                   
+                    <LightningBoltIcon className="w-5 h-5 text-green-600" />
                     <span>{detail.location}</span>
                   </div>
                   {/* Subjects */}
@@ -62,9 +101,8 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                     {detail.subjects.map((subject, idx) => (
                       <p
                         key={idx}
-                        className="text-sm text-green-600 dark:text-indigo-400 flex items-center space-x-1"
+                        className="text-sm text-green-600 dark:text-purple-400 flex items-center space-x-1"
                       >
-                       
                         <span>{subject}</span>
                       </p>
                     ))}
@@ -72,7 +110,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                   {/* Results and Description */}
                   <div className="mb-2">
                     <p className="flex items-center space-x-1 text-gray-700 dark:text-gray-300">
-                      
+                      <StarIcon className="w-5 h-5 text-yellow-500" />
                       <span>{detail.results}</span>
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -82,10 +120,10 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
