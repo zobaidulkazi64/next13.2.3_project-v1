@@ -8,7 +8,7 @@ import ShellScript from "../common/card/ShellScript";
 
 const HomePage: FC = () => {
   return (
-    <div className="relative p-9 m-3 mt-12 bg-white dark:bg-gray-900 dark:text-white shadow-lg rounded-2xl lg:p-12">
+    <div className="relative p-9 m-3 mt-12  dark:text-white shadow-lg rounded-2xl lg:p-12">
       <section className="mx-auto max-w-screen-xl pb-12 px-4 items-center lg:flex md:px-8">
         <motion.div
           className="space-y-4 flex-1 sm:text-center lg:text-left"

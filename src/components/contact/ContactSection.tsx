@@ -66,7 +66,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
 
   return ( 
     
-    <main className=" m-9 flex overflow-hidden flex-col lg:flex-row bg-white dark:bg-gray-900 dark:text-white shadow-lg rounded-2xl  justify-center">
+    <main className=" m-9 flex overflow-hidden flex-col lg:flex-row dark:text-white shadow-lg rounded-2xl  justify-center">
       <div className=" flex-1 lg:flex lg:justify-center">
         <div className="max-w-lg flex-1 mx-auto px-4 text-black dark:text-white">
           <FoolishVampire />

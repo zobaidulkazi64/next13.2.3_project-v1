@@ -1,61 +1,55 @@
+"use client";
 import React from "react";
-import skillsData from "@/contexts/skillsData.json"; // Adjust the path as per your project structure
-import Link from "next/link";
-
-type Technology = {
-  id: number;
+import { motion } from "framer-motion";
+import  Tooltip  from "@/components/common/Tooltip";
+import { skills } from "@/contexts/skillsData";
+interface Skill {
   name: string;
-  icon: string;
+  src: string;
+  alt: string;
   link: string;
-};
+}
 
-type SkillsShowIcons = {
-  databaseTec: Technology[];
-  frontendTec: Technology[];
-  backendTec: Technology[];
-};
 
 const SkillsShow: React.FC = () => {
-  const { databaseTec, frontendTec, backendTec } =
-    skillsData as SkillsShowIcons;
-
-  const SkillIcon: React.FC<{ tech: Technology }> = ({ tech }) => (
-    <Link href={tech.link} target="_blank" rel="noopener noreferrer">
-      <picture>
-        <img
-          className="w-16 h-16"
-          src={`https://skillicons.dev/icons?i=${tech.icon}`}
-          alt={tech.name}
-        />
-      </picture>
-    </Link>
-  );
-
-  return (
-    <div
-      className="flex mb-5 flex-col items-center translate-x-3 justify-center gap-4 container m-auto bg-white dark:bg-gray-900
-      dark:text-white shadow-lg rounded-2xl lg:p-12 p-4"
-    >
-      <h3 className="text-lg font-bold mb-2">Database Technologies</h3>
-      <div className="flex gap-3 items-center group transition-all duration-500 hover:-translate-y-2 shadow shadow-purple-400 rounded-lg p-2">
-        {databaseTec.map((tech) => (
-          <SkillIcon key={tech.id} tech={tech} />
-        ))}
-      </div>
-      <h3 className="text-lg font-bold mb-2">Frontend Technologies</h3>
-      <div className="flex  gap-3 items-center group transition-all duration-500 hover:-translate-y-2 shadow shadow-purple-400 rounded-lg p-2">
-        {frontendTec.map((tech) => (
-          <SkillIcon key={tech.id} tech={tech} />
-        ))}
-      </div>
-      <h3 className="text-lg font-bold mb-2">Backend Technologies</h3>
-      <div className="flex gap-3 items-center group transition-all duration-500 hover:-translate-y-2 shadow shadow-purple-400 rounded-lg p-2">
-        {backendTec.map((tech) => (
-          <SkillIcon key={tech.id} tech={tech} />
-        ))}
-      </div>
-    </div>
-  );
+ 
+   return (
+     <div className="flex flex-wrap justify-center gap-6 p-6">
+       {Object.entries(skills).map(([category, skillsArray]) => (
+         <motion.div
+           key={category}
+           className="rounded-lg p-4 w-full md:w-5/12 lg:w-1/4 xl:w-1/5 shadow-lg shadow-purple-400 drop-shadow-lg bg-purple-50 dark:bg-gray-800 dark:text-gray-200 flex flex-col items-center"
+           whileHover={{ scale: 1.05 }}
+           whileTap={{ scale: 0.95 }}
+           initial={{ opacity: 0, y: 50 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5 }}
+         >
+           <h2 className="text-xl font-bold text-gray-800 dark:text-white capitalize mb-3">
+             {category}
+           </h2>
+           <div className="flex justify-center flex-wrap gap-3">
+             {skillsArray.map((skill: Skill, index) => (
+               <Tooltip key={index} text={skill.name}>
+                 <a
+                   href={skill.link}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="inline-block"
+                 >
+                   <img
+                     className="inline-block border border-cyan-500 h-20 w-20 rounded-full ring-2 ring-white ring-opacity-50"
+                     src={skill.src}
+                     alt={skill.alt}
+                   />
+                 </a>
+               </Tooltip>
+             ))}
+           </div>
+         </motion.div>
+       ))}
+     </div>
+   );
 };
 
 export default SkillsShow;

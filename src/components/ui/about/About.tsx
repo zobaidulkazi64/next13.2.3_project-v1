@@ -19,18 +19,18 @@ const About = () => {
   return (
     <div className="flex flex-col md:flex-row items-center gap-10 md:items-start p-6 max-w-4xl mx-auto space-y-4 md:space-y-0">
       <motion.div
-        className="w-full md:w-1/5 mt-14 mr-40 flex-shrink-0"
+        className="w-full md:w-1/5 flex-shrink-0"
         initial="hidden"
         animate="visible"
         variants={imageVariants}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/src/assets/images/zobaidulkazi-avater.png"
+          src={aboutMeData.profileImageUrl}
           alt="About Image"
           width={300}
           height={300}
-          className="rounded-lg shadow-lg"
+          className="rounded-full justify-center object-cover m-auto shadow-lg"
         />
       </motion.div>
       <motion.div

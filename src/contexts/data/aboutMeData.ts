@@ -8,6 +8,7 @@ export const aboutMeData = {
     "https://avatars.githubusercontent.com/u/105772384?s=400&u=df755c27d467d3921d4dc034868ed982d6ded9bb&v=4",
   coverImageUrl:
     "https://github.com/zobkazi/zobkazi.github.io/blob/main/src/assets/images/@zobaidulkazi.jpg?raw=true",
+  aboutAvater: "https://github.com/zobkazi/zobkazi.github.io/blob/master/src/assets/images/zobaidulkazi-avater.png?raw=true",
   linkedinUrl: "https://www.linkedin.com/in/zobaidulkazi/",
   twitterUrl: "https://x.com/zobaidulkazi",
   facebookUrl: "https://www.facebook.com/zobkazi",
