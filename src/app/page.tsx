@@ -7,6 +7,7 @@ import ContactSection from '@/components/contact/ContactSection';
 import Thanks from '@/components/ui/about/Thanks';
 import Footer from '@/components/footer/Footer';
 import SkillsShow from '@/components/skills/SkillsShow';
+import About from '@/components/ui/about/About';
 
 const Home = () => {
 
@@ -14,6 +15,7 @@ const Home = () => {
     <div>
       <HomePage />
 
+      <About />
       <SkillsShow />
 
       <Thanks />
