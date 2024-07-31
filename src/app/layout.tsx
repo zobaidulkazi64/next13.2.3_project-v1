@@ -4,6 +4,14 @@ import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header/Header";
+import ScrollToTop from "@/components/ui-utils/ScrollToTop";
+
+
+// metadata
+import { metaDataLinks } from "@/contexts/metaData";
+import { keywords } from "@/contexts/keywords";
+import { metaDataTitle } from "@/contexts/metaData";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +25,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href={metaDataLinks.faviconLinkAppleTouchIcon}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href={metaDataLinks.faviconLink32x32}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href={metaDataLinks.faviconLink16x16}
+      />
+      <link rel="manifest" href="/site.webmanifest"></link>
+      <link
+        rel="mask-icon"
+        href={metaDataLinks.androidChromeLink512x512}
+        color="#5bbad5"
+      />
+      {/* keywords */}
+      <meta name="keywords" content={keywords.join(", ")} />
       <body>
         <ThemeProvider attribute="class">
           <Theme>
