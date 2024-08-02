@@ -3,7 +3,7 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header/Header";
+import Header from "@/components/common/Header/Header";
 import ScrollToTop from "@/components/ui-utils/ScrollToTop";
 
 

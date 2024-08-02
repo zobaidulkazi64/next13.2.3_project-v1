@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import { homeData } from "@/contexts/data/homeData";
-import ShellScript from "../common/card/ShellScript";
+import ShellScript from "@/components/common/card/ShellScript";
 
 const HomePage: FC = () => {
   return (

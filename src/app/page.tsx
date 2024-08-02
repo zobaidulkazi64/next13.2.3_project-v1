@@ -1,10 +1,10 @@
 import React from 'react'
-import HomePage from '@/components/home/Home';
-import CookieNotice from '@/components/cookie/CookieNotice';
-import ContactSection from '@/components/contact/ContactSection';
+import HomePage from '@/components/ui/home/Home';
+import CookieNotice from '@/components/common/cookie/CookieNotice';
+import ContactSection from '@/components/ui/contact/ContactSection';
 import Thanks from '@/components/ui/about/Thanks';
-import Footer from '@/components/footer/Footer';
-import SkillsShow from '@/components/skills/SkillsShow';
+import Footer from '@/components/common/footer/Footer';
+import SkillsShow from '@/components/ui/skills/SkillsShow';
 import About from '@/components/ui/about/About';
 
 

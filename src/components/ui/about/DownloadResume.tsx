@@ -3,7 +3,7 @@ import React from 'react'
 const DownloadResume = () => {
   return (
     <div>
-      <div className="relative duration-500  hover:-rotate-0   group [transform:rotate3d(1_,-1,_1,_60deg)] border border-sky-900 border-4  overflow-hidden rounded-2xl relative h-96 w-64 bg-sky-800 p-5 flex flex-col items-start gap-4">
+      <div className="duration-500  hover:-rotate-0   group [transform:rotate3d(1_,-1,_1,_60deg)] border border-sky-900 border-4  overflow-hidden rounded-2xl relative h-96 w-64 bg-sky-800 p-5 flex flex-col items-start gap-4">
         <div className="text-gray-50">
           <span className="font-bold text-5xl">Jr</span>
           <p className="text-xs">Frontend Developer</p>
