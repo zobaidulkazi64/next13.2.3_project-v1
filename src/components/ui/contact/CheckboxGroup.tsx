@@ -25,12 +25,8 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
               type="checkbox"
               checked={selectedItems.includes(item)}
               onChange={() => onChange(item)}
-              className="checkbox-item peer hidden"
+              className="w-4 h-4 text-purple-600 bg-purple-700 border-purple-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-purple-800 focus:ring-2 dark:bg-purple-700 dark:border-purple-700"
             />
-            <label
-              htmlFor={`service-${idx}`}
-              className="relative flex w-5 h-5  peer-checked:bg-purple-600 rounded-md border ring-offset-2 ring-indigo-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-black dark:after:border-white after:rotate-45"
-            ></label>
           </div>
           <label
             htmlFor={`service-${idx}`}

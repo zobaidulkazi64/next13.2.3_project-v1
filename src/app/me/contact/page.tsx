@@ -7,11 +7,7 @@ const contactPage = () => {
       <ContactSection
         servicesItems={[
           "Web Development",
-          "Mobile App Development",
-          "Desktop App Development",
-          "Data Analysis",
-          "Data Science",
-          "Data Analytics",
+          "Api Integration",
         ]}
       />
     </div>

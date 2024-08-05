@@ -70,11 +70,19 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
       <motion.div
         className="flex-1 lg:flex lg:justify-center"
         whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="max-w-lg flex-1 mx-auto px-4 text-black dark:text-white">
+       
+      ><div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
           <FoolishVampire />
+          <div className="mt-8">
+            <h1 className="text-3xl font-bold mb-4 ">Get in touch</h1>
+            <p className="text-gray-700 dark:text-white mb-8">
+              Whether you have a question or just want to say hi, I will try my
+              best to get back to you!
+            </p>
+          </div>
+        </div>
+        <div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
+          
           <ContactForm
             formData={formData}
             setFormData={setFormData}

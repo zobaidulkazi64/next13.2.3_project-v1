@@ -19,11 +19,8 @@ const Home = () => {
 
       <Thanks />
 
-      <ContactSection
-        servicesItems={["Web Development", "Mobile App Development"]}
-      />
 
-
+      <ContactSection servicesItems={[ "Web Development", "Api Integration"]}   />
       <div className="container m-auto">
         <CookieNotice />
         <Footer />
