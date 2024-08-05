@@ -5,13 +5,12 @@ import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/common/Header/Header";
 import ScrollToTop from "@/components/ui-utils/ScrollToTop";
-
+import ToastContainers from "@/components/common/Toast";
 
 // metadata
 import { metaDataLinks } from "@/contexts/metaData";
 import { keywords } from "@/contexts/keywords";
 import { metaDataTitle } from "@/contexts/metaData";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -53,6 +52,8 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class">
           <Theme>
+            <ScrollToTop />
+            <ToastContainers />
             <Header />
             {children}
           </Theme>

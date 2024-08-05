@@ -1,4 +1,4 @@
-"use client"  
+"use client";
 
 import Link from "next/link";
 import React from "react";
@@ -83,7 +83,7 @@ const GithubStats = () => {
 
   return (
     <motion.div
-      className="flex flex-col gap-8 mt-32 dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      className="container mx-auto flex flex-col gap-8 mt-32 dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

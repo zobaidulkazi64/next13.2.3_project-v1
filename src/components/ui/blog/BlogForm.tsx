@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { z } from "zod";
 import { BlogSchema } from "@/types/BlogType";
-import Toast from "@/components/common/Toast";
+import { toast } from "react-toastify";
 import InputField from "../contact/InputField";
 import TextareaField from "../contact/TextareaField";
 
@@ -19,10 +19,6 @@ const BlogForm: React.FC = ({}) => {
     url: "",
     tags: [],
   });
-  const [toast, setToast] = useState<{
-    type: "success" | "error" | "warning";
-    message: string;
-  } | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -50,17 +46,11 @@ const BlogForm: React.FC = ({}) => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to save blog");
+        toast.error("There was a problem saving the blog. Please try again.");
+        return;
       }
 
       const data = await response.json();
-      console.log("API response:", data);
-
-      setToast({
-        type: "success",
-        message: "Blog saved successfully!",
-      });
 
       // Reset the form
       setFormData({
@@ -72,30 +62,16 @@ const BlogForm: React.FC = ({}) => {
         url: "",
         tags: [],
       });
+
+      toast.success("Blog saved successfully");
     } catch (error) {
       console.error("Validation or submission failed:", error);
-      setToast({
-        type: "error",
-        message: "There was a problem saving the blog. Please try again.",
-      });
+      toast.error("There was a problem saving the blog. Please try again.");
     }
-
-    // Clear the toast message after 3 seconds
-    setTimeout(() => {
-      setToast(null);
-    }, 3000);
   };
 
   return (
-    <div className="container mx-auto p-4">
-      {toast && (
-        <Toast
-          type={toast.type}
-          message={toast.message}
-          isVisible={!!toast}
-          onClose={() => setToast(null)}
-        />
-      )}
+    <div className="container p-7 lg:w-1/2 md:w-2/3 m-auto">
       <h1 className="text-3xl font-bold mb-4">Blog Input Form</h1>
       <form onSubmit={handleFormSubmit} className="space-y-4">
         <div className="flex flex-col">
@@ -107,6 +83,7 @@ const BlogForm: React.FC = ({}) => {
               Title
             </label>
             <InputField
+              required
               id="title"
               name="title"
               type="text"
@@ -124,6 +101,7 @@ const BlogForm: React.FC = ({}) => {
               Subtitle
             </label>
             <InputField
+              required
               id="subtitle"
               name="subtitle"
               type="text"
@@ -140,6 +118,7 @@ const BlogForm: React.FC = ({}) => {
               Description
             </label>
             <TextareaField
+              required
               name="description"
               value={formData.description}
               onChange={handleChange}
@@ -155,8 +134,8 @@ const BlogForm: React.FC = ({}) => {
               Code
             </label>
             <TextareaField
-              name="description"
-              value={formData.description}
+              name="code"
+              value={formData.code}
               onChange={handleChange}
               label={""}
             />
@@ -170,7 +149,7 @@ const BlogForm: React.FC = ({}) => {
           >
             Image URL
           </label>
-          <input
+          <InputField
             id="image"
             name="image"
             type="text"
@@ -187,7 +166,7 @@ const BlogForm: React.FC = ({}) => {
           >
             URL
           </label>
-          <input
+          <InputField
             id="url"
             name="url"
             type="text"
@@ -204,14 +183,14 @@ const BlogForm: React.FC = ({}) => {
           >
             Tags (comma separated)
           </label>
-          <input
+          <InputField
             id="tags"
             name="tags"
             type="text"
             placeholder="tag1, tag2, tag3"
             value={formData.tags.join(", ")}
             onChange={handleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="block text-sm font-medium text-gray-700"
           />
         </div>
 

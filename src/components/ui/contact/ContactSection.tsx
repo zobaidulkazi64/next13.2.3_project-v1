@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Toast from "@/components/common/Toast";
+import { toast } from "react-toastify";
 import FoolishVampire from "@/components/common/card/FoolishVampire";
 import ContactForm, { FormData } from "./ContactForm";
 
@@ -18,11 +18,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
     message: "",
   });
 
-  const [toast, setToast] = useState<{
-    type: "success" | "error" | "warning";
-    message: string;
-  } | null>(null);
-
   const handleFormSubmit = async (formData: FormData) => {
     console.log("Form Data Submitted:", formData);
     try {
@@ -34,10 +29,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
       });
 
       if (response.ok) {
-        setToast({
-          type: "success",
-          message: "Your message has been sent successfully!",
-        });
+        toast.success("Your message has been sent successfully.");
         setFormData({
           fullName: "",
           email: "",
@@ -46,22 +38,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
           message: "",
         });
       } else {
-        setToast({
-          type: "error",
-          message:
-            "There was a problem sending your message. Please try again.",
-        });
+        toast.error("An error occurred. Please try again later.");
       }
-
-      // Clear the toast message after 3 seconds
-      setTimeout(() => {
-        setToast(null);
-      }, 3000);
     } catch (error) {
-      setToast({
-        type: "error",
-        message: "An error occurred. Please try again later.",
-      });
+      toast.error("An error occurred. Please try again later.");
     }
   };
 
@@ -70,8 +50,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
       <motion.div
         className="flex-1 lg:flex lg:justify-center"
         whileHover={{ scale: 1.02 }}
-       
-      ><div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
+      >
+        <div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
           <FoolishVampire />
           <div className="mt-8">
             <h1 className="text-3xl font-bold mb-4 ">Get in touch</h1>
@@ -82,21 +62,12 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
           </div>
         </div>
         <div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
-          
           <ContactForm
             formData={formData}
             setFormData={setFormData}
             onSubmit={handleFormSubmit}
             servicesItems={servicesItems}
           />
-          {toast && (
-            <Toast
-              type={toast.type}
-              message={toast.message}
-              isVisible={!!toast}
-              onClose={() => setToast(null)}
-            />
-          )}
         </div>
       </motion.div>
     </main>

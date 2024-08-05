@@ -1,4 +1,4 @@
-import { BlogType } from '@/types/BlogType';
+import { BlogType } from "@/types/BlogType";
 
 async function fetchBlog(bId: string) {
   const res = await fetch(`http://localhost:3000/api/blogs/${bId}`);

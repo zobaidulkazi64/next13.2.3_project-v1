@@ -78,7 +78,7 @@ const Header = () => {
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <a
+                  <Link
                     href={item.href}
                     className={`block  text-gray-700 rounded lg:hover:bg-purple-100 lg:p-0 lg:rounded py-2 pr-4 pl-3 ${
                       item.current
@@ -88,7 +88,7 @@ const Header = () => {
                     aria-current={item.current ? "page" : undefined}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

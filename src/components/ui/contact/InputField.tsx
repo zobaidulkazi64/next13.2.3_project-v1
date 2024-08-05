@@ -9,6 +9,7 @@ interface InputFieldProps {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   type?: string;
   required?: boolean;
+  placeholder?: string;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -19,7 +20,7 @@ const InputField: React.FC<InputFieldProps> = ({
   type = "text",
   required = false,
 }) => (
-  <div>
+  <div className="">
     <label className="font-medium">{label}</label>
     {required && <span className="text-red-500 m-2">*</span>}
     <input
