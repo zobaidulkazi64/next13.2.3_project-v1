@@ -41,3 +41,39 @@ export async function GET(req: NextRequest) {
     );
   }
 }
+
+// create blog
+export async function POST(req: NextRequest) {
+  try {
+    await dbConnect();
+
+    const body = await req.json();
+    const parsedBody = BlogSchema.parse(body); // Validate the request body using zod
+
+    // Add validation logic here
+
+    // check if blog already exists
+    const blog = await Blog.findOne({ ...parsedBody });
+    if (blog) {
+      return NextResponse.json(
+        { message: "Blog already exists" },
+        { status: 400 }
+      );
+    }
+
+    const newBlog = new Blog({
+      ...parsedBody,
+      bId: await getNextBId(),
+    });
+
+    await newBlog.save();
+
+    return NextResponse.json(
+      { message: "Blog saved successfully", blog: newBlog },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error("Failed to save blog:", error);
+    return NextResponse.json({ error: "Failed to save blog" }, { status: 500 });
+  }
+}
