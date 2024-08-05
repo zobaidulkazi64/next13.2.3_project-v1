@@ -1,10 +1,13 @@
 import React from "react";
 
 interface TextareaFieldProps {
-  label: string;
-  name: string;
-  value: string;
-  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
+  id?: string;
+  label?: string;
+  name?: string;
+  className?: string;
+  type?: string;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   required?: boolean;
 }
 

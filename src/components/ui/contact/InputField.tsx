@@ -1,10 +1,12 @@
 import React from "react";
 
 interface InputFieldProps {
-  label: string;
-  name: string;
-  value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  id: string;
+  className?: string;
+  label?: string;
+  name?: string;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   type?: string;
   required?: boolean;
 }
@@ -26,7 +28,7 @@ const InputField: React.FC<InputFieldProps> = ({
       value={value}
       onChange={onChange}
       required={required}
-      className="w-full mt-2 px-3 py-2 text-black font-mono dark:text-white bg-transparent outline-none border focus:border-purple-800 shadow-sm rounded-lg"
+      className=" mt-2 px-3 py-2 text-black font-mono dark:text-white bg-transparent outline-none border focus:border-purple-800 shadow-sm rounded-lg"
     />
   </div>
 );
