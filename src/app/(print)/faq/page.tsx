@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import {DoubleArrowDownIcon, DoubleArrowUpIcon} from '@radix-ui/react-icons'
+import { DoubleArrowDownIcon, DoubleArrowUpIcon } from "@radix-ui/react-icons";
 
 interface FAQItemProps {
   question: string;

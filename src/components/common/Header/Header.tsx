@@ -4,8 +4,6 @@ import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import DropdownMenuComponent from "./DropdownMenuComponent";
 import ThemeSwitch from "../themes/ThemeSwitch";
 import Link from "next/link";
-;
-
 const navItems = [
   { href: "/me/about", label: "Me", current: true },
   { href: "/projects", label: "Projects" },
@@ -35,16 +33,16 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0  w-full z-30 transition-all duration-300 ${
-        isScrolled ? "bg-white dark:bg-gray-900 shadow-lg" : "shadow-xl"
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white dark:bg-gray-900 shadow-lg"
+          : "shadow-xl bg-blue-300 dark:bg-gray-900"
       }`}
     >
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
-            <Link href="/">
-              ZK
-            </Link>
+            <Link href="/">ZK</Link>
           </div>
           <div className="flex items-center lg:order-2">
             <div className="flex items-center ml-3 space-x-8">
@@ -52,7 +50,7 @@ const Header = () => {
                 <span className="ml-1">English</span>
               </div>
               <div className="flex items-center">
-               <ThemeSwitch />
+                <ThemeSwitch />
               </div>
             </div>
             <button

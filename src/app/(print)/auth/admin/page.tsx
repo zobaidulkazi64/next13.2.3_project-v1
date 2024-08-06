@@ -33,7 +33,7 @@ const AdminOnly: React.FC = () => {
         toast.success("Login successful!");
 
         // Redirect to the dashboard
-        window.location.href = "/auth/dashboard"; // Adjust the redirect URL if necessary
+        window.location.href = "/dashboard"; // Adjust the redirect URL if necessary
       } else {
         toast.error(data.message);
       }
