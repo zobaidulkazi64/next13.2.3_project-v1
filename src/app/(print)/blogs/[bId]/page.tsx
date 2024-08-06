@@ -1,16 +1,42 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { BlogType } from "@/types/BlogType";
 
-async function fetchBlog(bId: string) {
-  const res = await fetch(`http://localhost:3000/api/blogs/${bId}`);
-  if (!res.ok) {
-    throw new Error(`Failed to fetch blog with id ${bId}: ${res.statusText}`);
-  }
-  const data = await res.json();
-  return data as BlogType;
-}
+const BlogDetail = () => {
+  const router = useRouter();
+  const [blog, setBlog] = useState<BlogType | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-const BlogDetail = async ({ params }: { params: { bId: string } }) => {
-  const blog = await fetchBlog(params.bId);
+  // Assuming bId is part of the route path, we extract it from the URL directly.
+  useEffect(() => {
+    const bId = window.location.pathname.split("/").pop(); // Extract the bId from the URL path
+    if (!bId) return; // Check if bId is available
+
+    const fetchBlog = async () => {
+      try {
+        const res = await fetch(`/api/blogs/${bId}`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch blog details");
+        }
+        const data = await res.json();
+        setBlog(data);
+      } catch (err) {
+        setError("Failed to fetch blog details");
+      }
+    };
+
+    fetchBlog();
+  }, []);
+
+  if (error) {
+    return <p className="text-red-500">Error: {error}</p>;
+  }
+
+  if (!blog) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -19,6 +45,9 @@ const BlogDetail = async ({ params }: { params: { bId: string } }) => {
       <p className="text-gray-600 mb-4">{blog.description}</p>
       {blog.image && <img src={blog.image} alt={blog.title} className="mb-4" />}
       <pre className="bg-gray-100 p-4 rounded">{blog.code}</pre>
+      <p className="text-gray-600 text-sm">
+        Date and Time: {new Date(blog.createdAt as string).toLocaleString()}
+      </p>
       <a
         href={blog.url}
         target="_blank"

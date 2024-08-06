@@ -1,7 +1,12 @@
 import React from "react";
+import WysiwygEditor from "./WysiwygEditor";
 
 const BlogUI = () => {
-  return <div>BlogUI</div>;
+  return (
+    <div>
+      <WysiwygEditor />
+    </div>
+  );
 };
 
 export default BlogUI;

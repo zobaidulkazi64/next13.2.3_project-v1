@@ -13,15 +13,13 @@ export async function GET(req: NextRequest) {
 
     console.log("Received bId:", bId); // Debugging
 
+    // Check if bId is valid
     if (!bId || isNaN(Number(bId))) {
       return NextResponse.json({ error: "Invalid bId" }, { status: 400 });
     }
 
-    // Convert bId to number
-    const numericBId = Number(bId);
-
     // Find blog by bId
-    const blog = await Blog.findOne({ bId: numericBId });
+    const blog = await Blog.findOne({ bId: Number(bId) }); // Use a consistent type
 
     if (!blog) {
       return NextResponse.json({ error: "Blog not found" }, { status: 404 });
