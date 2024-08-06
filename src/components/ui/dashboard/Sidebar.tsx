@@ -13,7 +13,7 @@ import {
   CubeIcon,
   BarChartIcon,
 } from "@radix-ui/react-icons";
-
+import { logout } from "@/middleware/auth";
 const Sidebar: React.FC = () => {
   const navigation = [
     {
@@ -50,11 +50,21 @@ const Sidebar: React.FC = () => {
       icon: GearIcon,
     },
     {
-      href: "/logout",
-      name: "Logout",
-      icon: ExitIcon,
+      href: "/dashboard/blog/create",
+      name: "Create Blog",
+      icon: AlignRightIcon,
+    },
+
+    {
+      href: "/dashboard/blog/update",
+      name: "Update Blog",
+      icon: AlignBottomIcon,
     },
   ];
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-20 h-full border-r space-y-8">
@@ -77,10 +87,8 @@ const Sidebar: React.FC = () => {
             ))}
           </ul>
           <div>
-
             <DropdownMenu.Root>
-              <DropdownMenu.Trigger>
-                          </DropdownMenu.Trigger>
+              <DropdownMenu.Trigger></DropdownMenu.Trigger>
             </DropdownMenu.Root>
 
             <ul className="px-4 pb-4 text-sm font-medium">
@@ -138,8 +146,12 @@ const Sidebar: React.FC = () => {
                         <option>Light</option>
                       </select>
                     </div>
+
                     <DropdownMenu.Item asChild className="outline-none">
-                      <button className="block w-full p-2 text-left rounded-md hover:bg-gray-50 active:bg-gray-100 duration-150">
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full p-2 text-left rounded-md hover:bg-gray-50 active:bg-gray-100 duration-150"
+                      >
                         Logout
                       </button>
                     </DropdownMenu.Item>

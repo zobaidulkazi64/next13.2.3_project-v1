@@ -1,14 +1,25 @@
-"use client"
-import { BlogType } from '@/types/BlogType';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
+"use client";
+import { BlogType } from "@/types/BlogType";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const fetchBlogs = async (page: number, limit: number) => {
   const res = await fetch(`/api/blogs?page=${page}&limit=${limit}`);
   if (!res.ok) {
-    throw new Error('Failed to fetch');
+    throw new Error("Failed to fetch");
   }
   return res.json();
+};
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(date);
 };
 
 const Blogs = () => {
@@ -28,7 +39,7 @@ const Blogs = () => {
         setBlogs(data.blogs);
         setPagination(data.pagination);
       } catch (error) {
-        console.error('Error fetching blogs:', error);
+        console.error("Error fetching blogs:", error);
       }
     };
 
@@ -43,6 +54,9 @@ const Blogs = () => {
           <div key={blog.bId} className="border rounded-lg shadow-md p-4">
             <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
             <p className="text-gray-600 mb-2">{blog.subtitle}</p>
+            <p className="text-gray-600 text-sm">
+              Date and Time: {formatDate(blog.createdAt as string)}
+            </p>
             <Link href={`/blogs/${blog.bId}`}>
               <p className="text-blue-500 hover:underline">Read more</p>
             </Link>
@@ -52,11 +66,17 @@ const Blogs = () => {
       <div className="flex justify-between mt-4">
         <button
           disabled={!pagination.prevPage}
-          onClick={() => setPagination((prev) => ({
-            ...prev,
-            currentPage: pagination.prevPage || 1,
-          }))}
-          className={`px-4 py-2 border rounded ${!pagination.prevPage ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+          onClick={() =>
+            setPagination((prev) => ({
+              ...prev,
+              currentPage: pagination.prevPage || 1,
+            }))
+          }
+          className={`px-4 py-2 border rounded ${
+            !pagination.prevPage
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-blue-500 text-white hover:bg-blue-600"
+          }`}
         >
           Previous
         </button>
@@ -65,11 +85,17 @@ const Blogs = () => {
         </span>
         <button
           disabled={!pagination.nextPage}
-          onClick={() => setPagination((prev) => ({
-            ...prev,
-            currentPage: pagination.nextPage || pagination.currentPage,
-          }))}
-          className={`px-4 py-2 border rounded ${!pagination.nextPage ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
+          onClick={() =>
+            setPagination((prev) => ({
+              ...prev,
+              currentPage: pagination.nextPage || pagination.currentPage,
+            }))
+          }
+          className={`px-4 py-2 border rounded ${
+            !pagination.nextPage
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-blue-500 text-white hover:bg-blue-600"
+          }`}
         >
           Next
         </button>

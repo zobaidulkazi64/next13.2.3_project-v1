@@ -18,6 +18,8 @@ export const BlogSchema = z.object({
     .array(z.string())
     .min(1, "Tags are required")
     .max(10, "Too many tags"),
+  updatedAt: z.string().optional(),
+  createdAt: z.string().optional(),
 });
 
 export type BlogType = z.infer<typeof BlogSchema>;

@@ -4,7 +4,6 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { logout } from "@/middleware/auth";
 import Dashboard from "@/components/ui/dashboard/Dashboard";
 
 const DashboardPage = () => {
@@ -21,14 +20,9 @@ const DashboardPage = () => {
     }
   }, [router]);
 
-  const handleLogout = () => {
-    logout();
-  };
-
   return (
     <div>
       <Dashboard />
-      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
