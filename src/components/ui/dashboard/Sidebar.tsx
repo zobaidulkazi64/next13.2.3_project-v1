@@ -56,8 +56,8 @@ const Sidebar: React.FC = () => {
     },
 
     {
-      href: "/dashboard/blog/update",
-      name: "Update Blog",
+      href: "/dashboard/blog/list",
+      name: "Blog List",
       icon: AlignBottomIcon,
     },
   ];

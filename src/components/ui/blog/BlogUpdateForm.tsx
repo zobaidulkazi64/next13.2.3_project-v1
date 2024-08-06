@@ -54,7 +54,6 @@ const BlogUpdateForm: React.FC<{ bId: number }> = ({ bId }) => {
     e.preventDefault();
     try {
       const validatedData = BlogSchema.parse(formData);
-      console.log("Form Data Submitted:", validatedData);
 
       const response = await fetch(`/api/blogs/${bId}`, {
         method: "PUT",
@@ -63,6 +62,7 @@ const BlogUpdateForm: React.FC<{ bId: number }> = ({ bId }) => {
         },
         body: JSON.stringify(validatedData),
       });
+      console.log("Form Data Submitted:", validatedData.description);
 
       if (!response.ok) {
         toast.error("There was a problem updating the blog. Please try again.");
@@ -83,7 +83,6 @@ const BlogUpdateForm: React.FC<{ bId: number }> = ({ bId }) => {
     <div className="container p-7 lg:w-1/2 md:w-2/3 m-auto">
       <h1 className="text-3xl font-bold mb-4">Update Blog</h1>
       <form onSubmit={handleFormSubmit} className="space-y-4">
-        {/* Fields similar to BlogForm */}
         <div className="flex flex-col">
           <div className="mb-4">
             <label
