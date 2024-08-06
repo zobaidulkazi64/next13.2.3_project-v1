@@ -25,32 +25,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href={metaDataLinks.faviconLinkAppleTouchIcon}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href={metaDataLinks.faviconLink32x32}
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href={metaDataLinks.faviconLink16x16}
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href={metaDataLinks.androidChromeLink512x512}
-          color="#5bbad5"
-        />
-        <meta name="keywords" content={keywords.join(", ")} />
-      </head>
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href={metaDataLinks.faviconLinkAppleTouchIcon}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href={metaDataLinks.faviconLink32x32}
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href={metaDataLinks.faviconLink16x16}
+      />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link
+        rel="mask-icon"
+        href={metaDataLinks.androidChromeLink512x512}
+        color="#5bbad5"
+      />
+      <meta name="keywords" content={keywords.join(", ")} />
+
       <body className="className={`${inter.className} antialiased`">
         <ThemeProvider attribute="class">
           <Theme>
