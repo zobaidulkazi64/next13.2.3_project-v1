@@ -1,11 +1,6 @@
 import React from "react";
-import { logout } from "@/middleware/auth";
 
 const Dashboard = () => {
-  const handleLogout = () => {
-    logout();
-  };
-
   return (
     <div className="container m-auto">
       <div className="flex flex-col m-auto w-3/4 items-center justify-center">
