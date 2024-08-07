@@ -53,14 +53,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
         name="fullName"
         value={formData.fullName}
         onChange={handleInputChange}
-        required id={""}      />
+        required
+        id={""}
+      />
       <InputField
         label="Email"
         name="email"
         type="email"
         value={formData.email}
         onChange={handleInputChange}
-        required id={""}      />
+        required
+        id={""}
+      />
       <div>
         <div className="font-medium mt-2  text-black dark:text-white">
           Phone number
@@ -87,7 +91,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         onChange={handleServiceChange}
       />
       <TextareaField
-        id="message"
         label="Message"
         name="message"
         value={formData.message}
