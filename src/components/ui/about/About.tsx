@@ -75,7 +75,7 @@ const About = () => {
               role="button"
             ></div>
           </div>
-          <p className="text-green-500 font-semibold">About Us</p>
+          <p className="text-green-500 font-semibold">About Me</p>
         </div>
         <div className="p-4 text-xl text-green-600 font-thin">
           <h2 className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4">

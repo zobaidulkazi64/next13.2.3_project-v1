@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
+
+
+const mitting = [
+  
+]
+
 
 const Thanks = () => {
   return (
@@ -39,14 +46,16 @@ const Thanks = () => {
               whileHover={{ backgroundColor: "#d1f7d6", scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Show More
+              <Link href="https://calendly.com/zobaidulkazi">
+                Schedule Now Meeting
+              </Link>
             </motion.button>
             <motion.button
               className="w-full text-white px-4 py-1 bg-green-500 rounded-sm"
               whileHover={{ backgroundColor: "#2f6f2e", scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Contact me
+              My Resume
             </motion.button>
           </div>
         </motion.div>

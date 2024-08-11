@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 
 interface TooltipProps {
@@ -16,7 +16,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
       className="relative inline-block"
     >
       {show && (
-        <div className="absolute bottom-full mb-2 p-2 bg-gray-800 text-white text-sm rounded">
+        <div className="absolute bottom-full mb-2 p-2 bg-purple-500 dark:bg-purple-900 text-white text-xl rounded">
           {text}
         </div>
       )}
