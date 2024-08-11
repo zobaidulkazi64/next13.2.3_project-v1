@@ -126,7 +126,7 @@ const GitHubUserCard = () => {
   };
 
   return (
-    <div className="container flex mt-12 flex-col items-center p-6 min-h-screen bg-purple-100 dark:bg-slate-900 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
+    <div className="w-full flex  flex-col items-center p-6 min-h-screen bg-purple-100 dark:bg-slate-900 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <form className="w-full max-w-lg relative " onSubmit={handleSearch}>
         <label
           htmlFor="search"
@@ -174,7 +174,7 @@ const GitHubUserCard = () => {
 
             <p className="text-sm">{userData.location || "N/A"}</p>
           </div>
-          <div className="p-6 bg-gray-50 text-gray-800">
+          <div className="p-6 bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-white">
             <p className="text-lg">{userData.bio}</p>
 
             <div className="mt-4">
@@ -194,7 +194,7 @@ const GitHubUserCard = () => {
               </p>
 
               <p className="flex items-center space-x-2">
-                <span className="font-bold text-purple-600">Blog:</span>
+                <span className="font-bold text-purple-600">Web:</span>
                 <Link2Icon className="w-4 h-4 inline-block align-middle" />
                 <Link
                   href={userData.blog}
@@ -300,9 +300,10 @@ const GitHubUserCard = () => {
               href={userData.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-block text-pink-500 hover:underline"
+              className="mt-4 text-center block text-2xl text-pink-500 hover:underline"
             >
-              View Profile on GitHub
+              View Profile on GitHub{" "}
+              <Link2Icon className="w-4 h-4 inline-block align-middle" />
             </Link>
           </div>
           <button
