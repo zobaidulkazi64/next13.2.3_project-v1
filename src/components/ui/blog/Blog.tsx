@@ -1,10 +1,9 @@
 import React from "react";
-import WysiwygEditor from "./WysiwygEditor";
 
 const BlogUI = () => {
   return (
     <div>
-      <WysiwygEditor />
+      <h1>Blog UI</h1>
     </div>
   );
 };
