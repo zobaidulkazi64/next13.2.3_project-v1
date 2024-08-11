@@ -1,22 +1,21 @@
-// app/dashboard/blog/update/[bId]/page.tsx
-
-"use client";
-
+// src/app/dashboard/blog/update/[bId]/page.tsx
 import React from "react";
-import { useParams } from "next/navigation"; // Use useParams from next/navigation
-import BlogUpdateForm from "@/components/ui/blog/BlogUpdateForm";
 
-const BlogUpdatePage: React.FC = () => {
-  const { bId } = useParams(); // Get the route parameter
-
-  // Ensure bId is available and is a valid number
-  if (!bId) return <p>Loading...</p>;
-
-  return (
-    <div>
-      <BlogUpdateForm bId={parseInt(bId as string, 10)} />
-    </div>
-  );
+// Simulate fetching blog IDs (replace this with actual data fetching)
+const fetchBlogIds = async () => {
+  return ["blog1", "blog2", "blog3"]; // Replace with real blog IDs
 };
 
-export default BlogUpdatePage;
+export async function generateStaticParams() {
+  const blogIds = await fetchBlogIds();
+
+  return blogIds.map((bId) => ({
+    bId,
+  }));
+}
+
+const UpdateBlogPage = ({ params }: { params: { bId: string } }) => {
+  return <div>Update Blog ID: {params.bId}</div>;
+};
+
+export default UpdateBlogPage;
