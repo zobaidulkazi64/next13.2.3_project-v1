@@ -8,7 +8,7 @@ import ShellScript from "@/components/common/card/ShellScript";
 const HomePage: FC = () => {
   return (
     <div className="relative p-9 m-3 mt-12 dark:text-white shadow-lg rounded-2xl lg:p-12">
-      <section className="mx-auto max-w-screen-xl pb-12 px-4 items-center lg:flex md:px-8">
+      <section className="mx-auto h-svh pb-12 px-4 items-center lg:flex md:px-8">
         <motion.div
           className="space-y-4 flex-1 sm:text-center lg:text-left"
           initial={{ opacity: 0, x: -50 }}
@@ -66,8 +66,11 @@ const HomePage: FC = () => {
           <div className="relative">
             <div className="">
               <ShellScript
-                className="w-72 h-40"
-                commands={["Hello World!"]}
+                className="w-72 h-40 text-black dark:text-white"
+                commands={[
+                  "console.log('Hello World!')",
+                  "alert('Hello World!')",
+                ]}
                 status={homeData.name}
               />
             </div>

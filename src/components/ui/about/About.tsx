@@ -30,24 +30,7 @@ const About = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-10 md:items-start p-6 max-w-4xl mx-auto space-y-4 md:space-y-0">
-      <motion.div
-        className="w-full md:w-1/5 flex-shrink-0"
-        initial="hidden"
-        animate="visible"
-        variants={imageVariants}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        whileHover={hoverEffects}
-        whileTap={tapEffects}
-      >
-        <Image
-          src={aboutMeData.profileImageUrl}
-          alt="About Image"
-          width={300}
-          height={300}
-          className="rounded-full justify-center object-cover m-auto shadow-lg"
-        />
-      </motion.div>
+    <div className="flex flex-col md:flex-row items-center gap-10 md:items-start p-6 md:p-12 h-svh mx-auto space-y-4 md:space-y-0">
       <motion.div
         className="w-full md:w-4/5 p-4 bg-pink-100 dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg"
         initial="hidden"

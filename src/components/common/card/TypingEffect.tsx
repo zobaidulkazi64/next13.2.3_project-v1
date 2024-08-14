@@ -30,7 +30,7 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({ words }) => {
       }
     };
 
-    const timer = setInterval(type, 300);
+    const timer = setInterval(type, 200);
     return () => clearInterval(timer);
   }, [charIndex, isDeleting, index, words]);
 

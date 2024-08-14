@@ -13,11 +13,9 @@ const Home = () => {
       <HomePage />
 
       <About />
-      <SkillsShow />
 
       <Thanks />
 
-      <ContactSection servicesItems={["Web Development", "Api Integration"]} />
       <div className="container m-auto">
         <CookieNotice />
         <Footer />

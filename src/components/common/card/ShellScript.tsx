@@ -1,4 +1,3 @@
-
 import React from "react";
 import TypewriterEffect from "./TypingEffect";
 
@@ -9,7 +8,11 @@ interface ShellScriptProps {
   className: string;
 }
 
-const ShellScript: React.FC<ShellScriptProps> = ({ commands, status, className }) => {
+const ShellScript: React.FC<ShellScriptProps> = ({
+  commands,
+  status,
+  className,
+}) => {
   return (
     <div className="p-4">
       <aside className="bg-pink-100  dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg">
@@ -29,15 +32,11 @@ const ShellScript: React.FC<ShellScriptProps> = ({ commands, status, className }
               className="w-3 h-3 rounded-full bg-green-500"
               aria-label="Maximize"
               role="button"
-            >
-              
-            </div>
+            ></div>
           </div>
-          <p className="text-green-500 font-semibold p-x-3">{status}</p>
+          <p className="text-green-500  font-semibold p-x-3">{status}</p>
         </div>
-        <div className="p-4 text-2xl text-green-600 font-thin">
-        
-
+        <div className="p-4 text-2xl text-purple-600 shadow-md font-bold">
           <TypewriterEffect words={commands} />
         </div>
       </aside>
