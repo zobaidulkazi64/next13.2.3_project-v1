@@ -1,42 +1,42 @@
 // components/ScrollToTop.tsx
 "use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { RocketIcon } from "@radix-ui/react-icons";
 
 const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
+  const toggleVisibility = useCallback(() => {
     if (window.scrollY > window.innerHeight * 0.3) {
-      // 30% of the viewport height
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  };
+  }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisibility);
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-    };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      requestAnimationFrame(toggleVisibility);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [toggleVisibility]);
+
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 p-2 z-50">
       {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="p-3 bg-purple-500 dark:bg-purple-800 text-black rounded-full shadow-lg hover:bg-pink-600 dark:hover:bg-pink-900 transition duration-300"
-        >
-          ↑
+        <button onClick={scrollToTop} aria-label="Scroll to top">
+          <RocketIcon className="w-11 h-11 p-2" />
         </button>
       )}
     </div>

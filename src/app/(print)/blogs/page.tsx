@@ -1,107 +1,75 @@
 "use client";
-import { BlogType } from "@/types/BlogType";
-import Link from "next/link";
+
 import { useState, useEffect } from "react";
+import BlogComponent from "@/components/ui/blog/BlogComponent"; // Adjust the path as necessary
+import { motion } from "framer-motion";
 
-const fetchBlogs = async (page: number, limit: number) => {
-  const res = await fetch(`/api/blogs?page=${page}&limit=${limit}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch");
-  }
-  return res.json();
-};
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(date);
-};
-
-const Blogs = () => {
-  const [blogs, setBlogs] = useState<BlogType[]>([]);
-  const [pagination, setPagination] = useState({
+const BlogPage = () => {
+  const [blogsData, setBlogsData] = useState({
+    blogs: [],
+    totalPages: 0,
     currentPage: 1,
-    totalPages: 1,
-    nextPage: null,
-    prevPage: null,
+    nextLink: null,
+    prevLink: null,
+    searchQuery: "",
   });
-  const limit = 10; // Number of blogs per page
+
+  const fetchBlogs = async (page = 1, search = "") => {
+    try {
+      const res = await fetch(
+        `https://message-aether.onrender.com/api/blog?page=${page}&search=${encodeURIComponent(
+          search
+        )}`
+      );
+      const data = await res.json();
+      if (data.success) {
+        setBlogsData({
+          blogs: data.data.blogs,
+          totalPages: data.data.totalPages,
+          currentPage: data.data.currentPage,
+          nextLink: data.data.nextLink,
+          prevLink: data.data.prevLink,
+          searchQuery: search,
+        });
+      } else {
+        console.error("Failed to fetch blogs:", data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
 
   useEffect(() => {
-    const loadBlogs = async () => {
-      try {
-        const data = await fetchBlogs(pagination.currentPage, limit);
-        setBlogs(data.blogs);
-        setPagination(data.pagination);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
+    fetchBlogs();
+  }, []);
 
-    loadBlogs();
-  }, [pagination.currentPage]);
+  const handleSearch = (search: string) => {
+    fetchBlogs(1, search);
+  };
+
+  const handlePageChange = (page: number) => {
+    fetchBlogs(page, blogsData.searchQuery);
+  };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Blogs</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        {blogs.map((blog) => (
-          <div key={blog.bId} className="border rounded-lg shadow-md p-4">
-            <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
-            <p className="text-gray-600 mb-2">{blog.subtitle}</p>
-            <p className="text-gray-600 text-sm">
-              Date and Time: {formatDate(blog.createdAt as string)}
-            </p>
-            <Link href={`/blogs/${blog.bId}`}>
-              <p className="text-blue-500 hover:underline">Read more</p>
-            </Link>
-          </div>
-        ))}
-      </div>
-      <div className="flex justify-between mt-4">
-        <button
-          disabled={!pagination.prevPage}
-          onClick={() =>
-            setPagination((prev) => ({
-              ...prev,
-              currentPage: pagination.prevPage || 1,
-            }))
-          }
-          className={`px-4 py-2 border rounded ${
-            !pagination.prevPage
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
-          }`}
-        >
-          Previous
-        </button>
-        <span className="text-lg">
-          Page {pagination.currentPage} of {pagination.totalPages}
-        </span>
-        <button
-          disabled={!pagination.nextPage}
-          onClick={() =>
-            setPagination((prev) => ({
-              ...prev,
-              currentPage: pagination.nextPage || pagination.currentPage,
-            }))
-          }
-          className={`px-4 py-2 border rounded ${
-            !pagination.nextPage
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
-          }`}
-        >
-          Next
-        </button>
-      </div>
-    </div>
+    <motion.div
+      className="max-w-6xl mx-auto p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <BlogComponent
+        blogs={blogsData.blogs}
+        totalPages={blogsData.totalPages}
+        currentPage={blogsData.currentPage}
+        nextLink={blogsData.nextLink}
+        prevLink={blogsData.prevLink}
+        searchQuery={blogsData.searchQuery}
+        onSearch={handleSearch}
+        onPageChange={handlePageChange}
+      />
+    </motion.div>
   );
 };
 
-export default Blogs;
+export default BlogPage;
