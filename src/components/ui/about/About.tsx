@@ -30,9 +30,9 @@ const About = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center gap-10 md:items-start p-6 md:p-12 h-svh mx-auto space-y-4 md:space-y-0">
+    <div className="container m-auto flex flex-col md:flex-row items-center gap-10 md:items-start p-6 md:p-12">
       <motion.div
-        className="w-full md:w-4/5 p-4 bg-pink-100 dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg"
+        className="w-full  p-4 bg-pink-100 dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg"
         initial="hidden"
         animate="visible"
         variants={textVariants}

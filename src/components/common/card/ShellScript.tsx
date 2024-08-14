@@ -34,9 +34,9 @@ const ShellScript: React.FC<ShellScriptProps> = ({
               role="button"
             ></div>
           </div>
-          <p className="text-green-500  font-semibold p-x-3">{status}</p>
+          <p className="text-green-500  p-1 font-semibold p-x-3">{status}</p>
         </div>
-        <div className="p-4 text-2xl text-purple-600 shadow-md font-bold">
+        <div className="p-4 text-2xl h-[20vh] text-purple-600 shadow-md font-bold">
           <TypewriterEffect words={commands} />
         </div>
       </aside>

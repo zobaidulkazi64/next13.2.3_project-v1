@@ -4,10 +4,11 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import { homeData } from "@/contexts/data/homeData";
 import ShellScript from "@/components/common/card/ShellScript";
+import Link from "next/link";
 
 const HomePage: FC = () => {
   return (
-    <div className="relative p-9 m-3 mt-12 dark:text-white shadow-lg rounded-2xl lg:p-12">
+    <div className="container mx-auto p-4 relative   dark:text-purple-600 shadow-lg rounded-2xl lg:p-12 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]">
       <section className="mx-auto h-svh pb-12 px-4 items-center lg:flex md:px-8">
         <motion.div
           className="space-y-4 flex-1 sm:text-center lg:text-left"
@@ -25,8 +26,7 @@ const HomePage: FC = () => {
             {homeData.description}
           </p>
           <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
-            <motion.a
-              href="/"
+            <motion.div
               className="px-7 py-3 w-full bg-purple-600 hover:bg-purple-700 text-gray-800 text-center rounded-md shadow-md block sm:w-auto  dark:hover:bg-purple-500 dark:text-gray-200"
               whileHover={{
                 scale: 1.05,
@@ -37,10 +37,11 @@ const HomePage: FC = () => {
                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
-              {homeData.hButton1}
-            </motion.a>
-            <motion.a
-              href="#"
+              <Link href={homeData.hButton1.link}>
+                {homeData.hButton1.name}
+              </Link>
+            </motion.div>
+            <motion.div
               className="px-7 py-3 w-full bg-purple-400 hover:bg-purple-600 text-gray-200 text-center rounded-md block sm:w-auto dark:bg-purple-800 dark:hover:bg-purple-500 dark:text-gray-300"
               whileHover={{
                 scale: 1.05,
@@ -51,8 +52,10 @@ const HomePage: FC = () => {
                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
-              {homeData.hButton2}
-            </motion.a>
+              <Link href={homeData.hButton2.link}>
+                {homeData.hButton2.name}
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
         <motion.div
@@ -66,10 +69,12 @@ const HomePage: FC = () => {
           <div className="relative">
             <div className="">
               <ShellScript
-                className="w-72 h-40 text-black dark:text-white"
+                className="w-72 h-40"
                 commands={[
-                  "console.log('Hello World!')",
-                  "alert('Hello World!')",
+                  "console.log('Welcome to JavaScript!')",
+                  "alert('As a Full Stack Developer')",
+                  "window.alert('I can build web applications!')",
+                  "document.write('Thanks for visiting!')",
                 ]}
                 status={homeData.name}
               />
@@ -81,19 +86,17 @@ const HomePage: FC = () => {
               whileHover={{
                 rotate: 0,
                 scale: 1,
-                boxShadow: "0px 12px 24px rgba(0, 0, 0, 0.2)",
               }}
               whileTap={{
                 scale: 0.95,
-                boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.2)",
               }}
               transition={{ duration: 0.5 }}
             >
               <div className="duration-500 shadow-2xl shadow-purple-400 group-hover:duration-400 relative rounded-2xl w-72 h-40 bg-purple-400 dark:bg-purple-900  flex flex-col justify-center items-center gap-1 before:-skew-x-12 before:rounded-2xl before:absolute before:content[''] dark:before:bg-purple-700 before:bg-purple-900 before:right-3 before:top-0 before:w-64 before:h-32 before:-z-10 group-hover:before:-right-3 group-hover:before:skew-x-12 before:duration-500 group-hover:duration-500">
-                <span className="text-5xl font-bold shadow-inner shadow-purple-900 dark:shadow-purple-700 dark:text-purple-100">
+                <span className="text-5xl font-bold shadow-inner drop-shadow-2xl shadow-purple-900 dark:shadow-purple-500 p-1  dark:text-yellow-600 ">
                   {homeData.nameTitle}
                 </span>
-                <p className="text-dark shadow-2xl dark:text-purple-100 font-bold effect-shadow text-xl">
+                <p className="shadow-2xl dark:text-purple-100 font-bold effect-shadow">
                   {homeData.nameLast}
                 </p>
               </div>

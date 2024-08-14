@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { socialLinks } from "@/contexts/socialLinks";
-
-const Footer: React.FC = () => {
+const FooterIcons: React.FC = () => {
   return (
     <footer className="py-8">
       <div className=" px-4 md:px-8 flex flex-col md:flex-row items-center justify-center">
@@ -12,7 +11,7 @@ const Footer: React.FC = () => {
               key={name}
               href={link}
               aria-label={name}
-              className="shadow-lg shadow-gray-500/50 p-2 rounded-full dark:text-gray-700 hover:text-gray-400"
+              className="shadow-lg shadow-purple-500/50 p-2 rounded-full dark:text-purple-700 hover:text-purple-400"
             >
               <Icon />
             </Link>
@@ -23,4 +22,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default FooterIcons;

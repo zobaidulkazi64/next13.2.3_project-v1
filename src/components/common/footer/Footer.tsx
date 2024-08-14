@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import FooterIcons from "./FooterIcons";
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <div>
+      <FooterIcons />
+    </div>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -56,7 +56,7 @@ export default function RootLayout({
             <ScrollToTop />
             <ToastContainers />
             {<Header />}
-            {children}
+            <div className="font-mono">{children}</div>
           </Theme>
         </ThemeProvider>
       </body>

@@ -35,11 +35,11 @@ const Header = () => {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white dark:bg-gray-900 shadow-lg"
-          : "shadow-xl bg-blue-300 dark:bg-gray-900"
+          ? "bg-purple-50   dark:bg-gray-900 shadow-lg"
+          : "shadow-2xl bg-purple-300 shadow-purple-900  dark:bg-gray-900"
       }`}
     >
-      <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+      <nav className="container mx-auto px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
             <Link href="/">ZK</Link>

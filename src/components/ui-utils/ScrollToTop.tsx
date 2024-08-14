@@ -34,7 +34,7 @@ const ScrollToTop: React.FC = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="p-3 bg-green-500 dark:bg-green-800 text-black rounded-full shadow-lg hover:bg-green-600 dark:hover:bg-green-900 transition duration-300"
+          className="p-3 bg-purple-500 dark:bg-purple-800 text-black rounded-full shadow-lg hover:bg-pink-600 dark:hover:bg-pink-900 transition duration-300"
         >
           ↑
         </button>

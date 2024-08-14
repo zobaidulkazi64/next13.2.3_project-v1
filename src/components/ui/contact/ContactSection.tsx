@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 import FoolishVampire from "@/components/common/card/FoolishVampire";
 import ContactForm, { FormData } from "./ContactForm";
+import Link from "next/link";
+import { ContactSectionContainerData } from "@/contexts/data/ContactSectionContainerData";
 
 interface ContactSectionProps {
   servicesItems: string[];
@@ -54,13 +56,37 @@ const ContactSection: React.FC<ContactSectionProps> = ({ servicesItems }) => {
         <div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
           <FoolishVampire />
           <div className="mt-8">
-            <h1 className="text-3xl font-bold mb-4 ">Get in touch</h1>
+            <h1 className="text-3xl font-bold mb-4 ">
+              {ContactSectionContainerData.touch.title}
+            </h1>
             <p className="text-gray-700 dark:text-white mb-8">
-              Whether you have a question or just want to say hi, I will try my
-              best to get back to you!
+              {ContactSectionContainerData.touch.description}
             </p>
           </div>
+          <hr className="w-[90%] h-1 rounded-full border-t-purple-500 bg-purple-500" />
+          <div>
+            <h1 className="text-3xl mt-4 font-bold mb-4">
+              {ContactSectionContainerData.schedule.schedule_title}
+            </h1>
+            <p className="text-gray-700 mt-5 dark:text-white mb-8">
+              {ContactSectionContainerData.schedule.description}
+              <Link href={ContactSectionContainerData.schedule.href}>
+                <span className="text-purple-500 font-bold text-2xl">
+                  {ContactSectionContainerData.schedule.bText}
+                </span>
+              </Link>
+            </p>
+          </div>
+          <div className="flex justify-end mt-8">
+            <div className="text-6xl text-purple-500 font-bold font-sans">
+              OR
+            </div>
+          </div>
         </div>
+        <div className="flex flex-col items-center">
+          <div className="w-1 h-screen bg-gray-500"></div>
+        </div>
+
         <div className="max-w-lg  flex-1 mx-auto px-4 text-black dark:text-white">
           <ContactForm
             formData={formData}

@@ -4,16 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
-
-const mitting = [
-  
-]
-
+const mitting = [];
 
 const Thanks = () => {
   return (
-    <div className="w-full px-9 py-12 container m-auto dark:text-white shadow-lg rounded-2xl lg:p-12">
-      <div className="h-full lg:w-[60%] sm:w-[80%] xs:w-[90%] mx-auto flex gap-8 items-center">
+    <div className="m-auto container mx-auto p-4 relative    dark:text-purple-600 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] shadow-lg rounded-2xl lg:p-12">
+      <div className=" lg:w-[60%] sm:w-[80%] xs:w-[90%] mx-auto flex gap-8 items-center">
         <motion.div
           className="flex flex-col gap-4 text-dark dark:text-white p-4 rounded-lg border border-green-300 shadow-xl shadow-green-400/30"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -55,7 +51,7 @@ const Thanks = () => {
               whileHover={{ backgroundColor: "#2f6f2e", scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              My Resume
+              <Link href="https://github.com/zobkazi">View My Github</Link>
             </motion.button>
           </div>
         </motion.div>
