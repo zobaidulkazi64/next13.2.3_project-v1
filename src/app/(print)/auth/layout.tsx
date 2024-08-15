@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import ToastContainers from "@/components/common/Toast";
 import { Theme } from "@radix-ui/themes";
 import { ThemeProvider } from "next-themes";
+import { AuthProvider } from "@/components/ui/dashboard/AuthContext";
 
 export const metadata = {
   title: "Next.js",
@@ -19,7 +20,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class">
           <Theme>
             <ToastContainers />
-            {children}
+            <AuthProvider>{children}</AuthProvider>
           </Theme>
         </ThemeProvider>
       </body>

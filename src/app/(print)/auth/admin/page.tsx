@@ -1,11 +1,12 @@
-// admin component
 "use client";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation"; // Import useRouter for redirection
 
 const AdminOnly: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const router = useRouter(); // Initialize useRouter
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,29 +17,33 @@ const AdminOnly: React.FC = () => {
     }
 
     try {
-      const response = await fetch("/api/auth/admin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://message-aether.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
-        // Save the token in cookies
-        document.cookie = `authToken=${data.token}; path=/;`;
+        // Save the token in localStorage
+        localStorage.setItem("token", data.token);
 
         toast.success("Login successful!");
 
-        // Redirect to the dashboard
-        window.location.href = "/dashboard"; // Adjust the redirect URL if necessary
+        // Redirect to the dashboard using Next.js router
+        router.push("/dashboard"); // Adjust the redirect URL if necessary
       } else {
-        toast.error(data.message);
+        toast.error(data.message || "Login failed. Please try again.");
       }
     } catch (err) {
       toast.error("An unexpected error occurred.");
+      console.error(err); // Log the error for debugging
     }
   };
 

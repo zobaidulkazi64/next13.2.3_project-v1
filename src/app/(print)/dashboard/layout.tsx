@@ -11,7 +11,7 @@ import ToastContainers from "@/components/common/Toast";
 // metadata
 import { metaDataLinks } from "@/contexts/metaData";
 import { keywords } from "@/contexts/keywords";
-import Header from "@/components/common/Header/Header";
+import { AuthProvider } from "@/components/ui/dashboard/AuthContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -53,10 +53,12 @@ export default function RootLayout({
       <body className="className={`${inter.className} antialiased`">
         <ThemeProvider attribute="class">
           <Theme>
-            <Sidebar />
-            <ToastContainers />
+            <AuthProvider>
+              <Sidebar />
+              <ToastContainers />
 
-            {children}
+              {children}
+            </AuthProvider>
           </Theme>
         </ThemeProvider>
       </body>

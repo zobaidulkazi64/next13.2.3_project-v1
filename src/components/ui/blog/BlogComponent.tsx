@@ -81,7 +81,7 @@ const BlogComponent: React.FC<BlogComponentProps> = ({
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Search results for {searchQuery}
+            Results for:<>_</> {searchQuery}
           </motion.p>
         )}
       </motion.div>

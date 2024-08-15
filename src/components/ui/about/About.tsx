@@ -32,7 +32,7 @@ const About = () => {
   return (
     <div className="container m-auto flex flex-col md:flex-row items-center gap-10 md:items-start p-6 md:p-12">
       <motion.div
-        className="w-full  p-4 bg-pink-100 dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg"
+        className="w-full bg-pink-100 dark:bg-zinc-900 shadow-2xl shadow-purple-900 dark:shadow-purple-500 rounded-lg"
         initial="hidden"
         animate="visible"
         variants={textVariants}
@@ -61,7 +61,7 @@ const About = () => {
           <p className="text-green-500 font-semibold">About Me</p>
         </div>
         <div className="p-4 text-xl text-green-600 font-thin">
-          <h2 className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4">
+          <h2 className="text-2xl font-bold text-purple-700 dark:text-purple-300">
             {aboutMeData.fullName}
           </h2>
           {aboutMeData.aboutText}
