@@ -143,7 +143,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = ({ params }) => {
           onClick={() => copyToClipboard(blog.code)}
           className={`absolute top-4 right-4 text-sm py-2 px-4 rounded-lg ${
             copied ? "bg-green-500" : "bg-blue-500"
-          } text-white hover:bg-blue-600 dark:hover:bg-blue-400 transition`}
+          } text-white transition`}
         >
           {copied ? "Copied!" : "Copy Code"}
         </button>
