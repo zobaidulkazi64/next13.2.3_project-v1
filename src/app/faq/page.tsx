@@ -59,7 +59,7 @@ const FAQSection: React.FC = () => {
         "Owing to a weak memory, I am forgetful. Along with some useful information, this weakness makes me forget useless information and helps me focus on what matters.",
     },
     {
-      question: "What are your favorite system configurations?",
+      question: "What are your favorite computer system configurations?",
       answer:
         "Favorite OS: Debian Linux, Favorite IDE: Visual Studio Code, Favorite Browser: Google Chrome.",
     },
