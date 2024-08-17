@@ -1,135 +1,185 @@
-"use client";
+"use client"; // Add this line at the top
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import React from "react";
-import CommentComponent from "@/components/ui/blog/CommentComponent";
+import { motion } from "framer-motion";
+import create from "zustand";
+import Link from "next/link";
+import NotFoundPage from "@/app/not-found";
+import Loading from "@/components/common/Loading";
+
+interface BlogStore {
+  copied: boolean;
+  setCopied: (value: boolean) => void;
+}
+
+const useBlogStore = create<BlogStore>((set) => ({
+  copied: false,
+  setCopied: (value) => set({ copied: value }),
+}));
+
+interface Author {
+  id: string;
+  username: string;
+  fullname: string;
+}
 
 interface Blog {
+  _id: string;
   bId: number;
-  author: {
-    id: string;
-    username: string;
-    fullname: string;
-  };
+  author: Author;
   title: string;
   subtitle: string;
   description: string;
   code: string;
   image: string;
   url: string;
-  metadata: {
-    tags: string[];
-    category: string[];
-  };
-  permissions: {
-    read: boolean;
-    write: boolean;
-    edit: boolean;
-    delete: boolean;
-  };
   createdAt: string;
+  updatedAt: string;
 }
 
-async function fetchBlogDetails(bId: number): Promise<Blog | null> {
-  try {
-    const res = await fetch(
-      `https://message-aether.onrender.com/api/blog/${bId}`
-    );
-
-    if (!res.ok) {
-      console.error("Error fetching blog:", res.statusText);
-      return null;
-    }
-
-    const data = await res.json();
-
-    if (data.success && data.data) {
-      return data.data;
-    }
-
-    return null;
-  } catch (error) {
-    console.error("Error fetching blog:", error);
-    return null;
-  }
+interface BlogDetailsProps {
+  params: {
+    bId: string;
+  };
 }
 
-const BlogDetailPage: React.FC<{ params: { bId: string } }> = ({ params }) => {
-  const router = useRouter();
-  const [blog, setBlog] = useState<Blog | null>(null);
-  const blogId = params.bId;
+const BlogDetails: React.FC<BlogDetailsProps> = ({ params }) => {
+  const { bId } = params;
+  const { copied, setCopied } = useBlogStore();
+  const currentBlogId = parseInt(bId, 10); // Convert blog ID to a number
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const blogData = await fetchBlogDetails(Number(params.bId));
-      if (!blogData) {
-        router.push("/404"); // Redirect to not found if blog doesn't exist
+  const [blog, setBlog] = React.useState<Blog | null>(null);
+  const [loading, setLoading] = React.useState(true);
+
+  const fetchBlogDetails = async (id: number) => {
+    try {
+      const response = await fetch(
+        `https://message-aether.onrender.com/api/blog/${id}`
+      );
+      const data = await response.json();
+      if (data.success && data.data) {
+        setBlog(data.data);
       }
-      setBlog(blogData);
-    };
+    } catch (error) {
+      console.error("Error fetching blog details:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchData();
-  }, [params.bId, router]);
+  React.useEffect(() => {
+    fetchBlogDetails(currentBlogId);
+  }, [currentBlogId]);
+
+  const copyToClipboard = (code: string) => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000); // Reset after 2 seconds
+  };
+
+  const nextBlogId = currentBlogId + 1;
+  const prevBlogId = currentBlogId - 1;
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (!blog) {
-    return <div>Loading...</div>; // Show a loading state while fetching data
+    return <NotFoundPage />;
   }
 
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(new Date(blog.createdAt));
-
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
-      <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-      <h2 className="text-xl font-semibold mb-2">{blog.subtitle}</h2>
-      <p className="text-gray-600 mb-6">{blog.description}</p>
-      <p className="text-gray-500 mb-4">
-        <strong>Author:</strong> {blog.author.fullname}
+    <div className="max-w-3xl mx-auto p-6 bg-gray-100 dark:bg-gray-900 min-h-screen">
+      <motion.h1
+        className="text-4xl font-bold text-gray-900 dark:text-white mb-4"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {blog.title}
+      </motion.h1>
+      <motion.h2
+        className="text-2xl text-gray-600 dark:text-gray-300 mb-4"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        {blog.subtitle}
+      </motion.h2>
+      <motion.img
+        src={blog.image}
+        alt={blog.title}
+        className="w-full h-auto rounded-lg mb-6 shadow-md"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7 }}
+      />
+      <p className="text-lg text-gray-800 dark:text-gray-300 mb-4">
+        {blog.description}
       </p>
-      <p className="text-gray-500 mb-4">
-        <strong>Created At:</strong> {formattedDate}
-      </p>
-      {blog.image && (
-        <img
-          src={blog.image}
-          alt={blog.title}
-          className="mb-6 max-w-full h-auto"
-        />
-      )}
-      <div className="bg-gray-700 w-11/12 h-[20vh] p-4 rounded">
-        {blog.code}
-      </div>
-      <p className="mt-4">
-        <a
-          href={blog.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 underline"
-        >
-          Read more
-        </a>
-      </p>
-      <div className="flex justify-between mt-6">
+      <a
+        href={blog.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 dark:text-blue-400 hover:underline mb-6 block"
+      >
+        Read more
+      </a>
+      <motion.div
+        className="bg-gray-200 dark:bg-gray-800 p-4 rounded-lg shadow-md mb-6 relative"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h3 className="text-xl text-gray-900 dark:text-white mb-2">
+          Code Example
+        </h3>
+        <pre className="bg-gray-900 dark:bg-black text-green-400 p-4 rounded-lg overflow-auto">
+          {blog.code}
+        </pre>
         <button
-          onClick={() => router.push(`/blogs/${Number(params.bId) - 1}`)}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md transition-all"
+          onClick={() => copyToClipboard(blog.code)}
+          className={`absolute top-4 right-4 text-sm py-2 px-4 rounded-lg ${
+            copied ? "bg-green-500" : "bg-blue-500"
+          } text-white hover:bg-blue-600 dark:hover:bg-blue-400 transition`}
         >
-          Previous
+          {copied ? "Copied!" : "Copy Code"}
         </button>
-        <button
-          onClick={() => router.push(`/blogs/${Number(params.bId) + 1}`)}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md transition-all"
-        >
-          Next
-        </button>
+      </motion.div>
+      <p className="text-sm text-gray-500 dark:text-gray-400">
+        Author: {blog.author.fullname}
+      </p>
+      <p className="text-sm text-gray-500 dark:text-gray-400">
+        Created at: {new Date(blog.createdAt).toLocaleDateString()}
+      </p>
+      <div className="flex justify-between mt-8">
+        {prevBlogId > 0 ? (
+          <Link href={`/blogs/${prevBlogId}`}>
+            <button className="bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700 transition-all duration-300 focus:outline-none active:scale-95">
+              Previous
+            </button>
+          </Link>
+        ) : (
+          <button className="bg-gray-600 text-white py-2 px-4 rounded opacity-50 cursor-not-allowed">
+            Previous
+          </button>
+        )}
+        {true ? ( // Assuming there are always subsequent blogs; adjust based on actual data
+          <Link href={`/blogs/${nextBlogId}`}>
+            <button className="bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-700 transition-all duration-300 focus:outline-none active:scale-95">
+              Next
+            </button>
+          </Link>
+        ) : (
+          <button className="bg-gray-600 text-white py-2 px-4 rounded opacity-50 cursor-not-allowed">
+            Next
+          </button>
+        )}
       </div>
-      <CommentComponent blogId={blogId} key={blogId} />
     </div>
   );
 };
 
-export default BlogDetailPage;
+export default BlogDetails;
