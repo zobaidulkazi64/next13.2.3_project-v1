@@ -30,6 +30,7 @@ export default function RootLayout({
         sizes="180x180"
         href={metaDataLinks.faviconLinkAppleTouchIcon}
       />
+      <link rel="manifest" href="/site.webmanifest" />
       <link
         rel="icon"
         type="image/png"
