@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { notFound } from "next/navigation";
 import React from "react";
 import CommentComponent from "@/components/ui/blog/CommentComponent";
 
@@ -65,13 +64,13 @@ const BlogDetailPage: React.FC<{ params: { bId: string } }> = ({ params }) => {
     const fetchData = async () => {
       const blogData = await fetchBlogDetails(Number(params.bId));
       if (!blogData) {
-        notFound(); // Redirect to not found if blog doesn't exist
+        router.push("/404"); // Redirect to not found if blog doesn't exist
       }
       setBlog(blogData);
     };
 
     fetchData();
-  }, [params.bId]);
+  }, [params.bId, router]);
 
   if (!blog) {
     return <div>Loading...</div>; // Show a loading state while fetching data

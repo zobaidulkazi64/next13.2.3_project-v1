@@ -6,12 +6,7 @@ import { dropdownMenuData } from "@/contexts/data/dropdownMenuData";
 const renderMenuItems = (items: any[]) => {
   return items.map((item, index) => {
     if (item.type === "separator") {
-      return (
-        <DropdownMenu.Separator
-          key={index}
-          className="my-1 "
-        />
-      );
+      return <DropdownMenu.Separator key={index} className="my-1 " />;
     }
 
     if (item.type === "submenu") {

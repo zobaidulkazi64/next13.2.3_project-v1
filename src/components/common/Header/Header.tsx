@@ -11,6 +11,10 @@ const navItems = [
   { href: "/blogs", label: "Blogs" },
 ];
 
+const navItemsData = {
+  items: navItems,
+};
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,7 +43,7 @@ const Header = () => {
           : "shadow-2xl bg-purple-300 shadow-purple-900  dark:bg-gray-900"
       }`}
     >
-      <nav className="container mx-auto px-4 lg:px-6 py-2.5">
+      <nav className="px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
             <Link href="/">ZK</Link>
@@ -74,15 +78,16 @@ const Header = () => {
             id="mobile-menu-2"
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              {navItems.map((item, index) => (
-                <li key={index}>
+              {navItemsData.items.map((item) => (
+                <li key={item.href}>
                   <Link
+                    prefetch={true}
                     href={item.href}
-                    className={`block  text-gray-700 rounded lg:hover:bg-purple-100 lg:p-0 lg:rounded py-2 pr-4 pl-3 ${
+                    className={`block py-2 pr-4 pl-3 ${
                       item.current
-                        ? "text-primary-700 bg-purple-100 lg:bg-purple-100 lg:text-primary-700"
-                        : "text-gray-700 border-b border-gray-100 hover:bg-purple-100 lg:hover:bg-purple-100 lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-purple-300 dark:hover:text-white lg:dark:hover:bg-primary-700 dark:border-gray-700"
-                    } lg:p-0`}
+                        ? "text-purple-700 dark:text-purple-400"
+                        : "text-gray-700 dark:text-gray-300"
+                    } rounded hover:bg-purple-100 dark:hover:bg-purple-400`}
                     aria-current={item.current ? "page" : undefined}
                   >
                     {item.label}
