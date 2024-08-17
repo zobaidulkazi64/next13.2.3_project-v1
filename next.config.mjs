@@ -2,8 +2,8 @@
 const nextConfig = {
   images: {
     domains: ["avatars.githubusercontent.com"],
-    output: "export",
   },
+  output: "export",
 };
 
 export default nextConfig;
