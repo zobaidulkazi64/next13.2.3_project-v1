@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     domains: ["avatars.githubusercontent.com"],
   },
-  output: "export",
+  output: "export", // Add this line for static exports
 };
 
 export default nextConfig;
