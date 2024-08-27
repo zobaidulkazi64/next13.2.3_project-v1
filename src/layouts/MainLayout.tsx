@@ -19,12 +19,11 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AntdRegistry>
+      <body className={inter.className}>
         <AntdConfigProvider>
-          {" "}
-          <body className={inter.className}>{children}</body>
+          <AntdRegistry>{children}</AntdRegistry>
         </AntdConfigProvider>
-      </AntdRegistry>
+      </body>
     </html>
   );
 }
