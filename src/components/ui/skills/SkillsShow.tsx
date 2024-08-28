@@ -37,7 +37,7 @@ const SkillsShow: React.FC = () => {
                 >
                   <picture>
                     <img
-                      className="inline-block border border-cyan-500 h-20 w-20 rounded-full ring-2 ring-white ring-opacity-50"
+                      className="inline-block border border-cyan-500 h-10 w-10 rounded-full ring-2 ring-white ring-opacity-50"
                       src={skill.src}
                       alt={skill.alt}
                     />
