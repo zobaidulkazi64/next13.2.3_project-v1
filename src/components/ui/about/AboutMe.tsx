@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { LinkedInIcon, TelegramIcons, XIcon } from "@/assets/icons";
 import Link from "next/link";
 import AboutTab from "./AboutTab";
+import Image from "next/image";
 
 interface AboutMeProps {
   fullName: string;
@@ -33,11 +34,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.3 }}
         >
-          <img
-            src={coverImageUrl}
-            alt="User Cover"
-            className="w-full xl:h-[20rem] rounded-lg shadow-lg lg:h-[22rem] md:h-[16rem] sm:h-[13rem] xs:h-[9.5rem]"
-          />
+          <div className="bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] min-w-32 min-h-32"></div>
         </motion.picture>
 
         {/* User Profile Image */}
@@ -47,7 +44,9 @@ const AboutMe: React.FC<AboutMeProps> = ({
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
-            <img
+            <Image
+              width={200}
+              height={200}
               src={profileImageUrl}
               alt="User Profile"
               className="rounded-full object-cover xl:w-[16rem] xl:h-[16rem] lg:w-[16rem] lg:h-[16rem] md:w-[12rem] md:h-[12rem] sm:w-[5rem] sm:h-[5rem] w-[8rem] h-[8rem] xs:w-[8rem] xs:h-[8rem] outline outline-2 outline-purple-500 shadow-xl relative xl:bottom-[7rem] lg:bottom-[8rem] md:bottom-[6rem] sm:bottom-[5rem] xs:bottom-[4.3rem]"

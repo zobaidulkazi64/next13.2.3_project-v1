@@ -4,11 +4,11 @@ import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import DropdownMenuComponent from "./DropdownMenuComponent";
 import ThemeSwitch from "../themes/ThemeSwitch";
 import Link from "next/link";
+import { Avatar } from "@radix-ui/themes";
 const navItems = [
   { href: "/me/about", label: "Me", current: true },
   { href: "/projects", label: "Projects" },
   { href: "/tec", label: "Technologies Stack" },
-  { href: "/blogs", label: "Blogs" },
 ];
 
 const navItemsData = {
@@ -37,16 +37,21 @@ const Header = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all  duration-300 ${
         isScrolled
-          ? "bg-purple-50   dark:bg-gray-900 shadow-lg"
-          : "shadow-2xl bg-purple-300 shadow-purple-900  dark:bg-gray-900"
+          ? "bg-purple-50 shadow-xl  dark:bg-gray-900"
+          : "shadow-sm shadow-slate-100 dark:shadow-slate-200"
       }`}
     >
       <nav className="px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <div className="flex items-center">
-            <Link href="/">ZK</Link>
+            <Link href="/">
+              <Avatar
+                src="https://avatars.githubusercontent.com/u/105772384?s=400&u=df755c27d467d3921d4dc034868ed982d6ded9bb&v=4"
+                fallback="ZK"
+              />
+            </Link>
           </div>
           <div className="flex items-center lg:order-2">
             <div className="flex items-center ml-3 space-x-8">

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-const DiscordIcon = () => {
+const DiscordIcon: React.FC = () => {
   return (
     <div>
       <svg
@@ -17,6 +17,6 @@ const DiscordIcon = () => {
       </svg>
     </div>
   );
-}
+};
 
-export default DiscordIcon
+export default DiscordIcon;

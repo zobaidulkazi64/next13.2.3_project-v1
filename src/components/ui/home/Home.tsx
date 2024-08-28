@@ -22,12 +22,12 @@ const HomePage: FC = () => {
             {homeData.greeting}
             <span className="text-purple-400"> {homeData.appsBuilt}</span>
           </h1>
-          <p className="text-gray-700 dark:text-white text-lg max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
+          <p className="text-purple-600 dark:text-purple-500 text-lg max-w-xl leading-relaxed sm:mx-auto lg:ml-0">
             {homeData.description}
           </p>
           <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
             <motion.div
-              className="px-7 py-3 w-full bg-purple-600 hover:bg-purple-700 text-gray-800 text-center rounded-md shadow-md block sm:w-auto  dark:hover:bg-purple-500 dark:text-gray-200"
+              className="px-7 py-3 w-full bg-purple-600 hover:bg-purple-700 text-gray-800 text-center rounded-md shadow-md block sm:w-auto  dark:hover:bg-purple-500 dark:text-purple-200"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
@@ -93,10 +93,10 @@ const HomePage: FC = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="duration-500 shadow-2xl shadow-purple-400 group-hover:duration-400 relative rounded-2xl w-72 h-40 bg-purple-400 dark:bg-purple-900  flex flex-col justify-center items-center gap-1 before:-skew-x-12 before:rounded-2xl before:absolute before:content[''] dark:before:bg-purple-700 before:bg-purple-900 before:right-3 before:top-0 before:w-64 before:h-32 before:-z-10 group-hover:before:-right-3 group-hover:before:skew-x-12 before:duration-500 group-hover:duration-500">
-                <span className="text-5xl font-bold shadow-inner drop-shadow-2xl shadow-purple-900 dark:shadow-purple-500 p-1  dark:text-yellow-600 ">
+                <span className="text-5xl font-bold shadow-inner drop-shadow-2xl shadow-purple-400 dark:shadow-purple-300 p-1 text-yellow-500  dark:text-yellow-600 ">
                   {homeData.nameTitle}
                 </span>
-                <p className="shadow-2xl dark:text-purple-100 font-bold effect-shadow">
+                <p className="text-2xl shadow-inner drop-shadow-2xl shadow-purple-400 dark:shadow-purple-300 p-1 text-yellow-500  dark:text-yellow-600  font-bold effect-shadow">
                   {homeData.nameLast}
                 </p>
               </div>
