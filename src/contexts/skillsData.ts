@@ -24,6 +24,19 @@ export const skills = {
 
   frontend: [
     {
+      name: "HTML",
+      src: "https://skillicons.dev/icons?i=html",
+      alt: "HTML",
+      link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    },
+    {
+      name: "CSS",
+      src: "https://skillicons.dev/icons?i=css",
+      alt: "CSS",
+      link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    },
+
+    {
       name: "React",
       src: "https://skillicons.dev/icons?i=react",
       alt: "React",
@@ -121,7 +134,7 @@ export const skills = {
   api_Documentation: [
     {
       name: "Swagger",
-      src: "https://skillicons.dev/icons?i=swagger",
+      src: "https://raw.githubusercontent.com/zobkazi/zobkazi.github.io/3c2c06679b46dea205193dc814580e2951fe1eea/src/assets/images/swagger.svg",
       alt: "Swagger",
       link: "https://swagger.io/",
     },
@@ -136,6 +149,12 @@ export const skills = {
       src: "https://skillicons.dev/icons?i=markdown",
       alt: "Markdown",
       link: "https://daringfireball.net/projects/markdown/",
+    },
+    {
+      name: "notion",
+      src: "https://skillicons.dev/icons?i=notion",
+      alt: "Notion",
+      link: "https://www.notion.so/",
     },
   ],
   microservices: [
@@ -256,7 +275,7 @@ export const skills = {
       link: "https://www.netlify.com/",
     },
   ],
-  cli: [
+  Cli: [
     {
       name: "Git",
       src: "https://skillicons.dev/icons?i=git",
@@ -306,12 +325,6 @@ export const skills = {
       src: "https://skillicons.dev/icons?i=pnpm",
       alt: "pnpm",
       link: "https://pnpm.io/",
-    },
-    {
-      name: "notion",
-      src: "https://skillicons.dev/icons?i=notion",
-      alt: "Notion",
-      link: "https://www.notion.so/",
     },
   ],
   degian_Tools: [

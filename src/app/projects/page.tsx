@@ -37,6 +37,7 @@ const ProjectsPage = () => {
       imageUrl: "https://via.placeholder.com/300",
       projectUrl: "https://github.com/zobkazi/job-board-api",
     },
+
     // Add more projects as needed
   ];
 

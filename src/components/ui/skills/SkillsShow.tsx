@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Tooltip from "@/components/common/Tooltip";
 import { skills } from "@/contexts/skillsData";
+import Link from "next/link";
 interface Skill {
   name: string;
   src: string;
@@ -29,7 +30,7 @@ const SkillsShow: React.FC = () => {
           <div className="flex justify-center flex-wrap gap-3">
             {skillsArray.map((skill: Skill, index) => (
               <Tooltip key={index} text={skill.name}>
-                <a
+                <Link
                   href={skill.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -42,7 +43,7 @@ const SkillsShow: React.FC = () => {
                       alt={skill.alt}
                     />
                   </picture>
-                </a>
+                </Link>
               </Tooltip>
             ))}
           </div>

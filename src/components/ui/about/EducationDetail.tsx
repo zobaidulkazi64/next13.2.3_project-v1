@@ -60,7 +60,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
         {educationDetails.map((detail, index) => (
           <motion.div
             key={index}
-            className="container mx-auto bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
+            className="container  mx-auto w-full sm:w-4/6 lg:w-full flex flex-col bg-gray-100 dark:bg-gray-800-600 shadow-lg rounded-lg mb-8"
             initial="hidden"
             animate="visible"
             variants={itemVariants}
@@ -74,7 +74,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                   {/* Card header */}
                   <div className="flex justify-between items-center mb-3">
                     {/* Title */}
-                    <h2 className="text-2xl leading-snug font-extrabold text-purple-800 dark:text-purple-100 truncate mb-1 sm:mb-0">
+                    <h2 className="text-xl leading-snug font-extrabold text-purple-800 dark:text-purple-100 truncate mb-1 sm:mb-0">
                       <AccessibilityIcon />
                       {detail.schoolName}
                     </h2>
@@ -87,7 +87,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
                     </div>
                   </div>
                   {/* Course Name */}
-                  <div className="flex items-center gap-2 mb-2 text-xl font-semibold text-gray-700 dark:text-gray-200">
+                  <div className="flex items-center gap-2 mb-2 text-lg font-semibold text-gray-700 dark:text-gray-200">
                     <CheckCircledIcon className="w-6 h-6 text-green-600" />
                     {detail.courseName}
                   </div>
