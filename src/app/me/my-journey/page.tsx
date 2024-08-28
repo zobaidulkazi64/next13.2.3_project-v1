@@ -1,7 +1,12 @@
+import MyJourney from "@/components/ui-utils/MyJourney";
 import React from "react";
 
 const MyJourneyPage = () => {
-  return <div>MyJourneyPage</div>;
+  return (
+    <div>
+      <MyJourney />
+    </div>
+  );
 };
 
 export default MyJourneyPage;
