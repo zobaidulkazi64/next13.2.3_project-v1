@@ -1,7 +1,6 @@
 "use client";
 
 import * as Tabs from "@radix-ui/react-tabs";
-import { Box } from "@radix-ui/themes";
 import React from "react";
 import EducationCard from "./EducationDetail";
 import { educationDetails } from "@/contexts/data/educationDetails";
@@ -20,16 +19,13 @@ const tabVariants = {
 const AboutTab: React.FC = () => {
   return (
     <div className="relative w-full">
-      <Tabs.Root
-        defaultValue="Educations"
-        className=""
-      >
+      <Tabs.Root defaultValue="Educations" className="">
         {/* Fixed Navigation Menu */}
-        <div className="w-full mx-auto lg:bg-gray-100 dark:lg:bg-gray-800 lg:border-r lg:border-gray-300 lg:dark:border-gray-700">
+        <div className="w-full mx-auto lg:bg-purple-100 dark:lg:bg-gray-800 lg:border-r lg:border-gray-300 lg:dark:border-gray-700">
           <Tabs.List className="flex justify-center gap-2 lg:gap-7 p-2 text-xl lg:text-3xl font-bold hover:text-purple-500 bg-gray-200 dark:bg-gray-800 lg:border-b lg:border-gray-300 lg:dark:border-gray-700">
             <MotionTabsTrigger
               value="Educations"
-              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
+              className="p-2 text-purple-600 dark:text-purple-400 hover:bg-purple-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -37,7 +33,7 @@ const AboutTab: React.FC = () => {
             </MotionTabsTrigger>
             <MotionTabsTrigger
               value="Certificates"
-              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
+              className="p-2 text-purple-600 dark:text-purple-400 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -45,7 +41,7 @@ const AboutTab: React.FC = () => {
             </MotionTabsTrigger>
             <MotionTabsTrigger
               value="GithubStats"
-              className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
+              className="p-2 text-gray-600 dark:text-purple-400 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

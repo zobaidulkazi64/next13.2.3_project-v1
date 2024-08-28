@@ -32,6 +32,7 @@ const GithubStats = () => {
       src: "http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=zobkazi&theme=2077",
       alt: "GitHub Top Languages Badge Cards",
     },
+
     {
       type: "img",
       src: "http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=zobkazi&theme=2077",
@@ -42,16 +43,17 @@ const GithubStats = () => {
       src: "http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=zobkazi&theme=2077",
       alt: "Contributions in last 30 days",
     },
-    {
-      type: "img",
-      src: "https://github-readme-stats.vercel.app/api/top-langs/?username=zobkazi&layout=compact&theme=dark",
-      alt: "Most Used Languages in GitHub",
-      height: "180em",
-    },
+
     {
       type: "img",
       src: "https://github-readme-streak-stats.herokuapp.com/?user=zobkazi&theme=dark",
       alt: "GitHub Streak Stats",
+      height: "180em",
+    },
+    {
+      type: "img",
+      src: "https://github-readme-stats.vercel.app/api/wakatime?username=zobaidulkazi&layout=compact&theme=algolia",
+      alt: "Wakatime Stats",
       height: "180em",
     },
   ];

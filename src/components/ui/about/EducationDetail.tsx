@@ -67,20 +67,20 @@ const EducationCard: React.FC<EducationCardProps> = ({ educationDetails }) => {
             whileHover={hoverEffects}
             whileTap={tapEffects}
           >
-            <div className="px-6 py-5 border-2 border-green-500 shadow-lg shadow-green-300/30 rounded-lg bg-gray-100 dark:bg-gray-800">
+            <div className="px-6 py-5 border-2 border-purple-500 shadow-lg shadow-green-300/30 rounded-lg bg-gray-100 dark:bg-gray-800">
               <div className="flex items-start">
                 {/* School Name and Course Name */}
                 <div className="flex-grow">
                   {/* Card header */}
                   <div className="flex justify-between items-center mb-3">
                     {/* Title */}
-                    <h2 className="text-2xl leading-snug font-extrabold text-gray-800 dark:text-gray-100 truncate mb-1 sm:mb-0">
+                    <h2 className="text-2xl leading-snug font-extrabold text-purple-800 dark:text-purple-100 truncate mb-1 sm:mb-0">
                       <AccessibilityIcon />
                       {detail.schoolName}
                     </h2>
                     {/* Duration */}
                     <div className="flex items-center space-x-2">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                      <span className="text-sm text-purple-600 dark:text-purple-400">
                         <BookmarkIcon className="w-5 h-5 text-green-600" />
                         {detail.years}
                       </span>

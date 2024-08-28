@@ -1,6 +1,6 @@
 import React from "react";
 
-const TelegramIcons = () => {
+const TelegramIcons: React.FC<React.SVGProps<SVGSVGElement>> = () => {
   return (
     <div>
       <svg
