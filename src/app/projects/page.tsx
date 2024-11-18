@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectShowcase from "@/components/ui-utils/ProjectShowcase";
+import ChooseOne from "@/components/ui/projects/ChooseOne";
 
 const ProjectsPage = () => {
   const projects = [
@@ -49,7 +50,10 @@ const ProjectsPage = () => {
       <ProjectShowcase projects={projects} />
 
 
-      <hr className="my-8" />
+
+      <hr className="my-8 border-t-2 border-dashed border-purple-500 opacity-50 w-full" />
+      
+
 
 
 

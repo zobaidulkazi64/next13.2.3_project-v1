@@ -1,6 +1,8 @@
 // pages/index.tsx
 import React from "react";
 import AboutMe from "@/components/ui/about/AboutMe";
+import ChooseOne from "@/components/ui/projects/ChooseOne";
+import Footer from "@/components/common/footer/Footer";
 
 
 // Example data for education details
@@ -25,7 +27,11 @@ const AboutPage: React.FC = () => {
     <div className="min-h-screen">
       <AboutMe {...aboutMeData} />
 
-   
+      <hr className="my-8 border-t-2 border-dashed border-purple-500 opacity-50 w-full" />
+
+      <ChooseOne />
+
+      <Footer />
     </div>
   );
 };
