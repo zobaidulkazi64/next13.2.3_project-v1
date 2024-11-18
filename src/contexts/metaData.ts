@@ -4,15 +4,15 @@ import { MetaDataLinks, MetaDataTitle, MetaDataSocial } from "@/types/metaData";
 
 export const metaDataLinks: MetaDataLinks = {
   faviconLink32x32:
-    "https://github.com/zobkazi/zobkazi.github.io/blob/main/public/favicons/favicon-32x32.png?raw=true",
+    "https://github.com/zobkazi/zobkazi.github.io/blob/production/public/favicons/favicon-32x32.png?raw=true",
   faviconLink16x16:
-    "https://github.com/zobkazi/zobkazi.github.io/blob/main/public/favicons/favicon-16x16.png?raw=true",
+    "https://github.com/zobkazi/zobkazi.github.io/blob/production/public/favicons/favicon-16x16.png?raw=true",
   faviconLinkAppleTouchIcon:
-    "https://github.com/zobkazi/zobkazi.github.io/blob/main/public/favicons/apple-touch-icon.png?raw=true",
+    "https://github.com/zobkazi/zobkazi.github.io/blob/production/public/favicons/apple-touch-icon.png?raw=true",
   androidChromeLink192x192:
-    "https://github.com/zobkazi/zobkazi.github.io/blob/main/public/favicons/android-chrome-192x192.png?raw=true",
+    "https://github.com/zobkazi/zobkazi.github.io/blob/production/public/favicons/android-chrome-192x192.png?raw=true",
   androidChromeLink512x512:
-    "https://github.com/zobkazi/zobkazi.github.io/blob/main/public/favicons/android-chrome-512x512.png?raw=true",
+    "https://github.com/zobkazi/zobkazi.github.io/blob/production/public/favicons/android-chrome-512x512.png?raw=true",
 };
 
 export const metaDataTitle: MetaDataTitle = {

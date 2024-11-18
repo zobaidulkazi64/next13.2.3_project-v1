@@ -1,10 +1,10 @@
 {
-  "name": "Your App Name",
-  "short_name": "AppName",
+  "name": "Zobaidul Kazi",
+  "short_name": "zobkazi",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#e003e0",
+  "theme_color": "#d90fea",
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
