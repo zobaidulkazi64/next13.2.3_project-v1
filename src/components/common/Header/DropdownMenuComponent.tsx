@@ -12,7 +12,7 @@ const renderMenuItems = (items: any[]) => {
     if (item.type === "submenu") {
       return (
         <DropdownMenu.Sub key={index}>
-          <DropdownMenu.SubTrigger className="px-4 py-2 text-sm bg-green-300 dark:bg-green-700 text-gray-700 dark:text-gray-300 hover:bg-purple-300 dark:hover:bg-purple-400">
+          <DropdownMenu.SubTrigger className="px-4 py-2 text-sm bg-purple-300 dark:bg-purple-700 text-gray-700 dark:text-gray-300 hover:bg-purple-300 dark:hover:bg-purple-400">
             {item.label} <span className="ml-2">^</span>
           </DropdownMenu.SubTrigger>
           <DropdownMenu.SubContent className="w-48 bg-white border border-gray-200 rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700">

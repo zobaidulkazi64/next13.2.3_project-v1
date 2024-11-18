@@ -10,17 +10,27 @@ export const dropdownMenuData = {
       type: "submenu",
       shortcut: "🛒",
       items: [
-        { label: "Font End Developer", href: "/me/front-end" },
-        { label: "Back End Developer", href: "/me/back-end" },
-        { label: "Full Stack Developer", href: "/me/full-stack" },
+        { label: "Font End Developer", href: "/projects/front-end" },
+        { label: "Back End Developer", href: "/projects/back-end" },
+        { label: "Full Stack Developer", href: "/projects/full-stack" },
 
         { type: "separator" },
         { label: "Download Resume", href: "/me/download-resume" },
       ],
     },
     { type: "separator" },
-    { label: "Share ", shortcut: "🔗", href: "/me/share-me" },
+    { label: "Share ", shortcut: "🔗", href: "https://zobkazi.github.io/"},
     { type: "separator" },
     { label: "Add to favorites", shortcut: "♥️", href: "/me/add-to-favorites" },
   ],
 };
+
+
+// twitter: "https://twitter.com/zobaidulkazi",
+//   facebook: "https://facebook.com/zobkazi",
+//   linkedin: "https://linkedin.com/in/zobaidulkazi",
+//   instagram: "https://instagram.com/zobkazi",
+//   github: "https://github.com/zobkazi",
+//   telegram: "https://t.me/zobaidulkazi",
+//   whatsapp: "https://whatsapp.com/channel/0029VaTXlwuFnSz2LbIuDZ2q",
+//   discord: "https://discord.gg/Anes3kYdRT",

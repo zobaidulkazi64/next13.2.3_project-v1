@@ -42,7 +42,7 @@ const ThemeSwitch = () => {
       </button>
 
       {dropdownOpen && (
-        <ul className="absolute right-0 bg-red-400 z-10 mt-2 p-2   rounded-full shadow-lg shadow-neutral-400 ">
+        <ul className="absolute right-0 bg-purple-400  z-10 mt-2 p-2   rounded-full shadow-lg shadow-neutral-400 ">
           <li
             className={`cursor-pointer flex items-center  justify-center w-full h-12`}
             onClick={() => handleThemeChange("light")}
