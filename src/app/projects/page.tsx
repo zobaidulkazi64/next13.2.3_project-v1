@@ -47,6 +47,19 @@ const ProjectsPage = () => {
         My Projects
       </h1>
       <ProjectShowcase projects={projects} />
+
+
+      <hr className="my-8" />
+
+
+
+
+
+      <div className="text-center">
+        <h2 className="text-2xl font-bold mb-4">Want to see more?</h2>
+        <p className="mb-8"> Check out my GitHub profile: <a href="https://github.com/zobkazi" className="text-blue-500 hover:underline">https://github.com/zobkazi</a></p>
+      </div>
+      
     </div>
   );
 };
